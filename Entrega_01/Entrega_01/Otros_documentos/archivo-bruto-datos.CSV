@@ -1,1 +1,26 @@
 
+# Datos brutos — Inventario Público de Glaciares de Chile
+
+Esta carpeta contiene los archivos de datos brutos utilizados como fuente principal del proyecto. Los datos provienen del **Inventario Público de Glaciares (IPG)**, elaborado por la Unidad de Glaciología y Nieves (UGN) de la Dirección General de Aguas (DGA), Ministerio de Obras Públicas de Chile.
+
+---
+
+## Archivos incluidos
+
+### `IPG_2022.csv`
+Inventario Público de Glaciares, versión 2022. Contiene 26.169 glaciares registrados con información de superficie, volumen, ubicación geográfica y tipo de glaciar.
+
+- **Fuente:** DGA, MOP — Resolución Exenta N° 1135, 16 de mayo de 2022
+- **Descarga original:** [https://dga.mop.gob.cl/inventario-publico-de-glaciares-actualizacion-2022/](https://dga.mop.gob.cl/inventario-publico-de-glaciares-actualizacion-2022/)
+
+### `IPG_2014.csv`
+Inventario Público de Glaciares, versión 2014. Contiene 24.114 glaciares registrados. Es la línea base para comparar la evolución del deshielo.
+
+- **Fuente:** DGA, MOP — primer inventario oficial
+- **Descarga original:** [https://dga.mop.gob.cl/inventario-publico-glaciares/](https://dga.mop.gob.cl/inventario-publico-glaciares/)
+
+---
+
+## Por qué estos dos archivos
+
+La comparación entre el IPG 2014 y el IPG 2022 es el eje central del proyecto. Entre ambos inventarios, Chile perdió aproximadamente un **8% de su superficie glaciar**, pasando de 22.796 km² a 21.009 km². Tener los dos archivos permite visualizar esa evolución y responder la pregunta de investigación del proyecto.
