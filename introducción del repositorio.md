@@ -28,9 +28,9 @@ Este proyecto busca traducir esos datos en una historia visual que permita enten
 
 ```
 Entrega_01/
-├── Entrega_individual_integrante-01/   → Base de datos glaciares (IPG) + análisis individual
+├── Entrega_individual_integrante-01/   → Base de datos + análisis individual
 ├── Entrega_individual_integrante-02/   → Base de datos clima (CR2) + análisis individual
-├── Entrega_individual_integrante-03/   → Base de datos + análisis individual
+├── Entrega_individual_integrante-03/   → Base de datos glaciares (IPG)+ análisis individual
 ├── Otros_documentos/                   → Archivos CSV de datos brutos
 ├── Presentación de la propuesta.md     → Síntesis, hipótesis, antecedentes y datos
 └── introducción del repositorio.md     → Este archivo
