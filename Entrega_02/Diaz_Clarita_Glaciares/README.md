@@ -1,6 +1,5 @@
 # Documentación del proceso de limpieza de datos
-**Proyecto:** Deshielo de glaciares y crisis hídrica en Chile  
-**Integrante:** Clarita Díaz  
+**Proyecto:** Deshielo de glaciares en Chile  
 **Base de datos:** `glaciares_escasez_por_region.csv`
 
 ---

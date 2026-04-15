@@ -1,11 +1,10 @@
 # Ficha técnica y diccionario de datos
-**Proyecto:** Deshielo de glaciares y crisis hídrica en Chile  
-**Integrante:** Clarita Díaz  
+**Proyecto:** Deshielo de glaciares Chile  
+
 **Archivo:** `glaciares_escasez_por_region.csv`
 
 ---
 
-## Ficha técnica
 
 ### Fuente de los datos
 
