@@ -59,16 +59,16 @@ El resultado final se exportó como `glaciares_escasez_por_region.csv`.
 
 ## 3. Preguntas que se pueden responder con la base de datos limpia
 
-**Pregunta 1: ¿Qué región tiene mayor masa glaciar en Chile?**  
+**¿Qué región tiene mayor masa glaciar en Chile?**  
 Ordenando por `volumen_km3_2022` de mayor a menor, se puede identificar que Magallanes y la Antártica Chilena concentra la mayor parte del volumen de hielo del país, seguida de Aysén. Ambas regiones australes almacenan más del 95% del hielo continental chileno.
 
-**Pregunta 2: ¿Existe relación entre poca masa glaciar y más decretos de escasez hídrica?**  
+**¿Existe relación entre poca masa glaciar y más decretos de escasez hídrica?**  
 Comparando `area_km2_2022` con `decretos_escasez_2014_2022`, se puede observar que regiones con escasa cobertura glaciar como la Metropolitana y Coquimbo presentan los mayores números de decretos de escasez. Esto sugiere que las zonas con menor reserva de agua en forma de hielo son también las más vulnerables a la escasez.
 
-**Pregunta 3: ¿Qué regiones del centro de Chile combinan poca masa glaciar con alta presión hídrica?**  
+**¿Qué regiones del centro de Chile combinan poca masa glaciar con alta presión hídrica?**  
 Filtrando regiones con `area_km2_2022` menor a 200 km² y `decretos_escasez_2014_2022` mayor a 5, emergen las regiones más críticas en términos de vulnerabilidad hídrica vinculada al deshielo: Metropolitana, Valparaíso, Coquimbo y Atacama.
 
-**Pregunta 4: ¿Cuánta agua en forma de hielo tiene disponible cada región?**  
+**¿Cuánta agua en forma de hielo tiene disponible cada región?**  
 La columna `volumen_km3_2022` permite comparar directamente la reserva de agua glaciar por región, mostrando la enorme desigualdad entre el sur (abundante) y el norte-centro (escaso) del país.
 
 ---
