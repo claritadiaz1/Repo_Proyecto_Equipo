@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-d1bdfb6e1cc805c0908560a2545c062d"}, "mark": {"type": "bar", "color": "#4682b4"}, "encoding": {"tooltip": [{"field": "cuenca", "type": "nominal"}, {"field": "volumen_agua_km3", "type": "quantitative"}], "x": {"field": "volumen_agua_km3", "title": "Volumen Agua (km\u00b3)", "type": "quantitative"}, "y": {"field": "cuenca", "sort": "-x", "title": "Cuenca", "type": "nominal"}}, "title": "Top 10 Cuencas con Reservas de Agua Glaciar", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json", "datasets": {"data-d1bdfb6e1cc805c0908560a2545c062d": [{"cuenca": "COSTERAS ENTRE LIMITE REGION Y SENO ANDREW", "volumen_agua_km3": 741.2745760865567}, {"cuenca": "COSTERAS E ISLAS ENTRE R AYSEN Y R BAKER Y CANAL", "volumen_agua_km3": 614.458812963346}, {"cuenca": "RIO PASCUA", "volumen_agua_km3": 292.016462147028}, {"cuenca": "COSTERAS ENTRE SENO ANDREW Y R. HOLLEMBERG E ISLAS AL ORIENTE", "volumen_agua_km3": 277.348678671748}, {"cuenca": "TIERRA DEL FUEGO", "volumen_agua_km3": 180.93617557153652}, {"cuenca": "COSTERAS ENTRE R. PASCUA LIMITE REGION. ARCHIPIELAGO GUAYECO", "volumen_agua_km3": 170.7917685638605}, {"cuenca": "RIO BAKER", "volumen_agua_km3": 136.34023741110764}, {"cuenca": "VERTIENTE DEL ATLANTICO", "volumen_agua_km3": 29.256044656271026}, {"cuenca": "COSTERAS E ISLAS ENTRE R HOLLEMBERG, GOLFO ALTE. LAGUNA BLANCA", "volumen_agua_km3": 21.591457147996586}, {"cuenca": "ISLAS AL SUR DEL CANAL BEAGLE Y TERRITORIO ANTARTICO", "volumen_agua_km3": 16.988769011268694}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
