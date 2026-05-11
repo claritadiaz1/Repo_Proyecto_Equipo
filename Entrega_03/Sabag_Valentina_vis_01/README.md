@@ -13,7 +13,7 @@ Para transformar los datos del Inventario Público de Glaciares 2022 en informac
 
 ## Decisiones Técnicas
 
-- **Gráfico de Barras Horizontales:** Se eligió este formato porque los nombres de las cuencas son extensos, en un eje vertical se leen sin cortes (y era más fácil e programar).
+- **Gráfico de Barras Horizontales:** Se eligió este formato porque los nombres de las cuencas son extensos, en un eje vertical se leen sin cortes (y era más fácil de programar).
 - **Interactividad:** El uso de HTML con Altair permite tooltips para conocer el valor exacto de km³ de agua al pasar el cursor (aparece una leyenda sobre las barras).
 
 ---
