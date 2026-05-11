@@ -6,7 +6,7 @@ Chile posee una de las reservas de agua dulce más importantes del mundo, resgua
  
 ## La diversidad del hielo
  
-En el norte, donde el sol es implacable y las lluvias escasean, predominan los glaciares rocosos. A diferencia de las masas blancas de postal, estos están cubiertos por detritos o mezclados con roca. Su importancia es vital: actúan como "termos" naturales, protegidos del derretimiento directo por su capa de piedra, siendo la fuente de agua crítica para los valles de Atacama y Coquimbo. En regiones como Arica y Parinacota, Tarapacá y Antofagasta, la composición de la barra del gráfico está dominada por este tipo de hielo. Son invisibles para el turista, pero imprescindibles para la vida.
+En el norte, donde el sol es fuerte y hay poca lluvia, predominan los glaciares rocosos. A diferencia de las masas blancas de postal, estos están cubiertos por detritos o mezclados con roca. Su importancia es vital, ya que actúan como "termos" naturales, protegidos del derretimiento directo por su capa de piedra, siendo la fuente de agua crítica para los valles de Atacama y Coquimbo. En regiones como Arica y Parinacota, Tarapacá y Antofagasta, la composición de la barra del gráfico está dominada por este tipo de hielo. Son invisibles para el turista, pero imprescindibles para la vida.
  
 Hacia el centro y sur, aparecen los glaciares de montaña y los glaciares de valle. Estos son los reguladores del caudal de los ríos. En años de sequía extrema, cuando la nieve desaparece temprano en la temporada, es el hielo milenario el que mantiene el flujo de agua para el consumo humano y la agricultura. La Región Metropolitana, con su enorme demanda hídrica y sus glaciaretes menguantes, representa uno de los escenarios más críticos del país.
  
@@ -27,7 +27,7 @@ Los glaciares del Nevados de Chillán han experimentado una reducción superior 
  
 ## Un mapa de vulnerabilidad
  
-La visualización adjunta no solo muestra números; muestra una estructura de supervivencia. Al normalizar las barras al 100%, el gráfico permite comparar la composición de tipos de glaciares entre regiones muy distintas en tamaño, revelando patrones que una visualización con valores absolutos ocultaría.
+La visualización adjunta no solo muestra números, muestra una estructura de supervivencia. Al normalizar las barras al 100%, el gráfico permite comparar la composición de tipos de glaciares entre regiones muy distintas en tamaño, revelando patrones que una visualización con valores absolutos ocultaría.
  
 Mientras que en la Región Metropolitana los glaciaretes luchan por no desaparecer, en Magallanes la escala es monumental pero igualmente amenazada. Entender esta distribución es el primer paso para una política pública que no trate al glaciar solo como una postal turística, sino como la infraestructura hídrica más importante de la nación: una que tardó milenios en construirse y que podría desaparecer en décadas.
  
