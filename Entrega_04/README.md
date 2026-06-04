@@ -61,8 +61,7 @@ el tema central y marcando claramente las transiciones narrativas.
 ## Wireframes
 
 ### Link al prototipo
-[→ Ver prototipo en Miro](#) *(reemplazar con el link real)*
-
+[→ Ver prototipo en Miro](https://miro.com/app/board/uXjVHKZ6ya4=/)
 ### Justificación de la estructura y flujo
 
 La webstory funciona con scroll vertical continuo organizado en secciones
@@ -114,24 +113,38 @@ sino *¿qué significa esto para quienes dependen de esa agua?*
 
 **Propuesta de trabajo grupal actualizada:**
 El equipo dividió los roles de la siguiente manera:
-- Investigación y datos: [integrante]
-- Narrativa y guión de Shoan: [integrante]
-- Diseño visual e identidad: [integrante]
-- Desarrollo y visualizaciones interactivas: [integrante]
+- Investigación y datos: [Valentina Sabag]
+- Narrativa y guión de Shoan: [Clarita Díaz]
+- Diseño visual e identidad: [Josefa Gallegos]
+- Desarrollo y visualizaciones interactivas: [Valentina, Josefa y Clarita]
 
 ---
 
 ## Respaldo de visualización individual
 
-*(Cada integrante completa esta sección en su carpeta personal)*
 
-Ver carpeta: `Apellido_Nombre_vis_XX/`
-
+Ver carpeta: `Gallegos_Josefa_vis_01/`
 Contiene:
-- `visualizacion/vis_XX.html` — visualización final
+- `visualizacion/vis_01.html` — visualización final
 - `visualizacion/codigo_visualizacion.ipynb` — notebook con el script
-- `visualizacion/base_datos_XX.csv` — base de datos utilizada
+- `visualizacion/base_datos_01.csv` — base de datos utilizada
 - `README.md` — análisis individual de la visualización
+
+`Diaz_Clarita_vis_02/`
+Contiene:
+- `visualizacion/vis_02.html` — visualización final
+- `visualizacion/codigo_visualizacion.ipynb` — notebook con el script
+- `visualizacion/base_datos_02.csv` — base de datos utilizada
+- `README.md` — análisis individual de la visualización
+
+`Sabag_Valentina_vis_03/`
+Contiene:
+- `visualizacion/vis_03.html` — visualización final
+- `visualizacion/codigo_visualizacion.ipynb` — notebook con el script
+- `visualizacion/base_datos_03.csv` — base de datos utilizada
+- `README.md` — análisis individual de la visualización
+
+
 
 ---
 
