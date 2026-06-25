@@ -1,92 +1,259 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voces del Hielo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 </head>
-
 <body>
 
-<!-- ❄️ NIEVE -->
-<div id="tsparticles"></div>
+  <!-- ===================== NAV ===================== -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <img src="img/logo.png" alt="Voces del Hielo logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#datos">Datos</a></li>
+      <li><a href="#glaciares">Glaciares</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+  </nav>
 
-<!-- LOGO -->
-<header>
-  <img id="logo" src="img/logo.png" alt="Voces del Hielo">
-</header>
+  <!-- ===================== ESCENA 1: BIENVENIDA ===================== -->
+  <section id="inicio" class="scene scene-1">
+    <!-- Canvas nieve -->
+    <canvas id="snow-canvas"></canvas>
 
-<!-- INICIO -->
-<section class="inicio">
-  <h1>Voces del Hielo</h1>
-  <p>La historia de Shoan y la pérdida de su hogar</p>
-</section>
+    <!-- Fondo glaciar -->
+    <div class="glacier-bg" id="glacier-bg">
+      <img src="img/glaciar1.png" alt="Glaciar patagónico" class="bg-img" id="glaciar1" />
+      <img src="img/glaciar2.png" alt="Glaciar derretido" class="bg-img hidden" id="glaciar2" />
+    </div>
 
-<!-- ESCENA 1 -->
-<section class="escena">
+    <!-- Overlay oscuro -->
+    <div class="scene-overlay"></div>
 
-  <img id="fondo" src="img/glaciar1.png" class="fondo">
+    <!-- Hero content -->
+    <div class="hero-content" id="hero-content">
+      <div class="title-block">
+        <p class="eyebrow">Una historia de la Patagonia</p>
+        <h1 class="main-title">Voces del<br/><em>Hielo</em></h1>
+        <p class="subtitle">El testimonio de Shoan, el último espíritu del glaciar</p>
+      </div>
+      <div class="scroll-hint">
+        <span>Baja para comenzar</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
 
-  <div class="personaje">
-    <img id="shoan" src="img/shoan-feliz.png">
-    <div class="globo">Me llamo Shoan, así me decían los tehuelches de la Patagonia.</div>
-  </div>
+    <!-- Shoan escena 1 -->
+    <div class="shoan-container" id="shoan-s1">
+      <img src="img/shoan-feliz.png" alt="Shoan feliz" class="shoan-img" id="shoan-img-s1" />
+      <div class="speech-bubble" id="bubble-s1">
+        <p>¡Hola! Me llamo <strong>Shoan</strong>.</p>
+        <p>Así me llamaban los antiguos <em>tehuelches</em>, los primeros pueblos que habitaron estas tierras de la Patagonia. Ellos vivían junto al hielo, y aprendieron a escucharlo.</p>
+        <p>Este glaciar es mi hogar. ¿Quieres que te cuente su historia?</p>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <!-- ===================== ESCENA 2: PREOCUPACIÓN ===================== -->
+  <section id="historia" class="scene scene-2">
+    <div class="scene-overlay scene-overlay-dark"></div>
+    <div class="scene-content fade-in-section">
+      <div class="shoan-container shoan-left">
+        <div class="speech-bubble bubble-left" id="bubble-s2">
+          <p>Hace 50 años, todo lo que ves a tu alrededor era hielo eterno.</p>
+          <p>Hoy, ese hielo está desapareciendo más rápido de lo que nadie imaginó.</p>
+          <p>Déjame mostrarte lo que los científicos han documentado...</p>
+        </div>
+        <img src="img/shoan-preocupado.png" alt="Shoan preocupado" class="shoan-img shoan-worried" />
+      </div>
 
-<!-- ESCENA 2 -->
-<section class="escena">
+      <!-- Datos estadísticos -->
+      <div class="stats-grid">
+        <div class="stat-card" data-delay="0">
+          <span class="stat-number" data-target="82">0</span><span class="stat-unit">%</span>
+          <p class="stat-label">de los glaciares chilenos está en retroceso</p>
+        </div>
+        <div class="stat-card" data-delay="200">
+          <span class="stat-number" data-target="1500">0</span><span class="stat-unit">+</span>
+          <p class="stat-label">glaciares documentados en Chile, el mayor inventario de América del Sur</p>
+        </div>
+        <div class="stat-card" data-delay="400">
+          <span class="stat-number" data-target="60">0</span><span class="stat-unit">%</span>
+          <p class="stat-label">del agua dulce de Chile depende de glaciares y nieves eternas</p>
+        </div>
+        <div class="stat-card" data-delay="600">
+          <span class="stat-number" data-target="103">0</span><span class="stat-unit">m</span>
+          <p class="stat-label">retrocedió el Glaciar Tyndall solo entre 1975 y 2000</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="personaje">
-    <img id="shoan2" src="img/shoan-preocupado.png">
-    <div class="globo">Ha cambiado mucho...</div>
-  </div>
+  <!-- ===================== ESCENA 3: GRÁFICO ===================== -->
+  <section id="datos" class="scene scene-3">
+    <div class="scene-content fade-in-section">
+      <div class="section-header">
+        <p class="eyebrow">Los números no mienten</p>
+        <h2>Lo que los científicos<br/>han registrado</h2>
+      </div>
 
-</section>
+      <div class="shoan-intro-chart">
+        <img src="img/shoan-preocupado.png" alt="Shoan mostrando datos" class="shoan-small" />
+        <div class="speech-bubble bubble-inline">
+          <p>Los científicos también han documentado este cambio. Mira cómo han retrocedido los glaciares más importantes de Chile con los años.</p>
+        </div>
+      </div>
 
-<!-- ESCENA 3 -->
-<section class="escena">
+      <!-- Gráfico SVG / Canvas -->
+      <div class="chart-wrapper">
+        <div class="chart-legend">
+          <span class="legend-item"><span class="dot" style="background:#4fc3d7"></span>Glaciar Grey</span>
+          <span class="legend-item"><span class="dot" style="background:#7ed3e8"></span>Glaciar Tyndall</span>
+          <span class="legend-item"><span class="dot" style="background:#a8e6f0"></span>Glaciar San Rafael</span>
+          <span class="legend-item"><span class="dot" style="background:#c8f0f8"></span>Glaciar O'Higgins</span>
+        </div>
+        <canvas id="glacier-chart" width="900" height="420"></canvas>
+        <p class="chart-source">Fuente: DGA Chile, CONAF, Centro de Estudios Científicos (CECS) · Datos 1975–2023</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="personaje">
-    <img id="shoan3" src="img/shoan-triste.png">
-    <div class="globo">Estoy perdiendo mi hogar...</div>
-  </div>
+  <!-- ===================== ESCENA 4: TRISTEZA ===================== -->
+  <section class="scene scene-4">
+    <div class="glacier-bg-melted">
+      <img src="img/glaciar2.png" alt="Glaciar derretido" class="bg-img" />
+    </div>
+    <div class="scene-overlay scene-overlay-warm"></div>
+    <div class="scene-content scene-content-centered fade-in-section">
+      <div class="shoan-container shoan-center">
+        <img src="img/shoan-triste.png" alt="Shoan triste" class="shoan-img shoan-big" />
+        <div class="speech-bubble bubble-center" id="bubble-s4">
+          <p>Cada año que pasa, mi hogar se hace más pequeño.</p>
+          <p>No es solo un glaciar. Es agua dulce para millones de personas. Es el ecosistema de la Patagonia. Es memoria de miles de años.</p>
+          <p><strong>Aún hay tiempo de actuar. Pero necesito tu voz.</strong></p>
+        </div>
+      </div>
 
-  <div class="datos">
-    <div class="globo">Los glaciares almacenan agua dulce vital</div>
-    <div class="globo">Su retroceso afecta ecosistemas completos</div>
-    <div class="globo">El huemul depende de este equilibrio</div>
-  </div>
+      <div class="cta-block">
+        <a href="https://www.glaciares.cl" target="_blank" class="btn-primary">Conoce la campaña por la Ley de Glaciares</a>
+        <a href="https://glaciologia.cl" target="_blank" class="btn-secondary">Leer investigación científica</a>
+      </div>
+    </div>
+  </section>
 
-</section>
-<section class="escena" id="datos">
+  <!-- ===================== ESCENA 5: MAPA ===================== -->
+  <section id="glaciares" class="scene scene-5">
+    <div class="scene-content fade-in-section">
+      <div class="section-header">
+        <p class="eyebrow">Exploración interactiva</p>
+        <h2>¿Quieres conocer los<br/>glaciares que aún sobreviven?</h2>
+      </div>
 
-  <h2>El retroceso de los glaciares</h2>
+      <div class="shoan-intro-map">
+        <img src="img/shoan-preocupado.png" alt="Shoan invitando" class="shoan-small" />
+        <div class="speech-bubble bubble-inline">
+          <p>Toca cada glaciar en el mapa para conocer su historia, su tamaño y cuánto ha retrocedido.</p>
+        </div>
+      </div>
 
-  <p>Comparación de glaciares en la Patagonia chilena</p>
+      <!-- Mapa SVG interactivo de Chile con glaciares -->
+      <div class="map-wrapper">
+        <div class="map-container">
+          <!-- Mapa Chile simplificado SVG -->
+          <svg id="chile-map" viewBox="0 0 300 700" xmlns="http://www.w3.org/2000/svg">
+            <!-- Silueta Chile simplificada -->
+            <path class="chile-shape" d="M160,20 L180,30 L195,60 L200,100 L195,140 L185,180 L175,220 L170,260 L165,300 L160,340 L155,380 L148,420 L140,460 L130,500 L120,540 L108,570 L95,590 L80,610 L65,630 L55,650 L50,670 L55,680 L70,670 L85,650 L100,625 L115,600 L125,570 L135,540 L145,500 L155,460 L163,420 L170,380 L175,340 L180,300 L185,260 L190,220 L195,180 L200,140 L205,100 L205,60 L195,30 L175,15 Z" />
 
-  <canvas id="grafico"></canvas>
+            <!-- Puntos de glaciares -->
+            <!-- Grey -->
+            <circle class="glacier-dot" cx="85" cy="590" r="10" data-glacier="grey" />
+            <text class="glacier-label" x="100" y="594">Grey</text>
 
-</section>
-<!-- MAPA -->
-<section class="mapa">
+            <!-- Tyndall -->
+            <circle class="glacier-dot" cx="90" cy="610" r="10" data-glacier="tyndall" />
+            <text class="glacier-label" x="105" y="614">Tyndall</text>
 
-  <h2>Explora los glaciares de Chile</h2>
+            <!-- O'Higgins -->
+            <circle class="glacier-dot" cx="105" cy="555" r="10" data-glacier="ohiggins" />
+            <text class="glacier-label" x="120" y="559">O'Higgins</text>
 
-  <iframe src="LINK_GENIALLY"
-    width="100%" height="700"></iframe>
+            <!-- San Rafael -->
+            <circle class="glacier-dot" cx="125" cy="490" r="10" data-glacier="sanrafael" />
+            <text class="glacier-label" x="140" y="494">San Rafael</text>
 
-</section>
+            <!-- Exploradores -->
+            <circle class="glacier-dot" cx="130" cy="470" r="10" data-glacier="exploradores" />
+            <text class="glacier-label" x="145" y="474">Exploradores</text>
 
-<!-- LIBRERÍA NIEVE -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<!-- LIBRERÍA CHART -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <!-- Norte: Tapado -->
+            <circle class="glacier-dot" cx="170" cy="120" r="10" data-glacier="tapado" />
+            <text class="glacier-label" x="145" y="115">El Tapado</text>
 
-<!-- NIEVE -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script src="script.js"></script>
+            <!-- Olivares -->
+            <circle class="glacier-dot" cx="175" cy="200" r="10" data-glacier="olivares" />
+            <text class="glacier-label" x="150" y="195">Olivares</text>
+          </svg>
 
+          <!-- Panel de información de glaciar -->
+          <div class="glacier-panel" id="glacier-panel">
+            <button class="panel-close" id="panel-close">✕</button>
+            <div class="panel-img-wrap">
+              <div class="panel-img-placeholder" id="panel-img">🧊</div>
+            </div>
+            <div class="panel-info">
+              <h3 id="panel-name">Nombre del glaciar</h3>
+              <div class="panel-stats">
+                <div class="panel-stat">
+                  <span class="panel-stat-label">Ubicación</span>
+                  <span class="panel-stat-value" id="panel-location">–</span>
+                </div>
+                <div class="panel-stat">
+                  <span class="panel-stat-label">Superficie actual</span>
+                  <span class="panel-stat-value" id="panel-area">–</span>
+                </div>
+                <div class="panel-stat">
+                  <span class="panel-stat-label">Retroceso estimado</span>
+                  <span class="panel-stat-value" id="panel-retreat">–</span>
+                </div>
+                <div class="panel-stat">
+                  <span class="panel-stat-label">Período registrado</span>
+                  <span class="panel-stat-value" id="panel-period">–</span>
+                </div>
+              </div>
+              <p class="panel-desc" id="panel-desc">Descripción del glaciar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-hint">
+          <span>← Toca un punto para explorar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER / CONTACTO ===================== -->
+  <footer id="contacto" class="footer">
+    <div class="footer-content">
+      <img src="img/logo.png" alt="Logo" class="footer-logo" />
+      <p class="footer-tagline">Una historia contada por el hielo, para quienes aún pueden escuchar.</p>
+      <div class="footer-links">
+        <a href="mailto:contacto@vocesdelhielo.cl">contacto@vocesdelhielo.cl</a>
+        <a href="https://glaciologia.cl" target="_blank">glaciologia.cl</a>
+        <a href="https://www.glaciares.cl" target="_blank">glaciares.cl</a>
+      </div>
+      <p class="footer-credits">Proyecto universitario · Datos: DGA, CECS, CONAF, Inventario de Glaciares de Chile 2022</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
