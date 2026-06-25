@@ -51,3 +51,52 @@ if(scroll > 1100 && globos[3]) globos[3].classList.add("show");
 if(scroll > 1300 && globos[4]) globos[4].classList.add("show");
 
 });
+const ctx = document.getElementById('grafico');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['1990', '2000', '2010', '2020', '2025'],
+
+    datasets: [
+
+      {
+        label: 'Glaciar Grey',
+        data: [0, 0.5, 2, 5, 7.5],
+        borderColor: '#0077b6',
+        tension: 0.4,
+        fill: false
+      },
+
+      {
+        label: 'Glaciar San Rafael',
+        data: [0, 0.3, 1.2, 3.5, 5.8],
+        borderColor: '#00b4d8',
+        tension: 0.4,
+        fill: false
+      },
+
+      {
+        label: 'Glaciar San Quintín',
+        data: [0, 1.5, 4, 8, 10],
+        borderColor: '#90e0ef',
+        tension: 0.4,
+        fill: false
+      }
+
+    ]
+  },
+
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Retroceso de glaciares en la Patagonia chilena'
+      },
+      legend: {
+        position: 'top'
+      }
+    }
+  }
+});
