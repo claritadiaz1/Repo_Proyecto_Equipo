@@ -119,23 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
     datasets: [
       {
         label: 'Glaciar Grey',
-        color: '#4fc3d7',
-        // Superficie en km² estimada (retroceso acumulado desde base 100%)
+        color: '#1a6ea8',        // azul oscuro
         values: [100, 97, 93, 88, 82, 76],
       },
       {
         label: 'Glaciar Tyndall',
-        color: '#7ed3e8',
+        color: '#00c9b1',        // calipso fuerte
         values: [100, 96, 90, 83, 74, 66],
       },
       {
         label: 'Glaciar San Rafael',
-        color: '#a8e6f0',
+        color: '#f0f8ff',        // blanco hielo
         values: [100, 98, 95, 91, 87, 83],
       },
       {
         label: "Glaciar O'Higgins",
-        color: '#c8f0f8',
+        color: '#7ec8e3',        // celeste claro
         values: [100, 97, 92, 86, 79, 72],
       },
     ],
@@ -432,6 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const dots = document.querySelectorAll('.glacier-dot');
   const panel = document.getElementById('glacier-panel');
+  const panelEmpty = document.getElementById('glacier-panel-empty');
   const panelClose = document.getElementById('panel-close');
 
   dots.forEach(dot => {
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const info = glacierData[key];
       if (!info) return;
 
-      // Update panel
+      // Update panel content
       document.getElementById('panel-name').textContent     = info.name;
       document.getElementById('panel-location').textContent = info.location;
       document.getElementById('panel-area').textContent     = info.area;
@@ -453,7 +453,8 @@ document.addEventListener('DOMContentLoaded', () => {
       dots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
 
-      // Show panel
+      // Hide empty, show panel
+      if (panelEmpty) panelEmpty.style.display = 'none';
       panel.classList.remove('open');
       requestAnimationFrame(() => panel.classList.add('open'));
     });
@@ -461,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   panelClose?.addEventListener('click', () => {
     panel.classList.remove('open');
+    if (panelEmpty) panelEmpty.style.display = '';
     dots.forEach(d => d.classList.remove('active'));
   });
 
