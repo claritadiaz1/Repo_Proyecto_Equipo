@@ -115,10 +115,10 @@
       <!-- Gráfico SVG / Canvas -->
       <div class="chart-wrapper">
         <div class="chart-legend">
-          <span class="legend-item"><span class="dot" style="background:#4fc3d7"></span>Glaciar Grey</span>
-          <span class="legend-item"><span class="dot" style="background:#7ed3e8"></span>Glaciar Tyndall</span>
-          <span class="legend-item"><span class="dot" style="background:#a8e6f0"></span>Glaciar San Rafael</span>
-          <span class="legend-item"><span class="dot" style="background:#c8f0f8"></span>Glaciar O'Higgins</span>
+          <span class="legend-item"><span class="dot" style="background:#1a6ea8"></span>Glaciar Grey</span>
+          <span class="legend-item"><span class="dot" style="background:#00c9b1"></span>Glaciar Tyndall</span>
+          <span class="legend-item"><span class="dot" style="background:#f0f8ff; border:1px solid #8ca5b8"></span>Glaciar San Rafael</span>
+          <span class="legend-item"><span class="dot" style="background:#7ec8e3"></span>Glaciar O'Higgins</span>
         </div>
         <canvas id="glacier-chart" width="900" height="420"></canvas>
         <p class="chart-source">Fuente: DGA Chile, CONAF, Centro de Estudios Científicos (CECS) · Datos 1975–2023</p>
@@ -201,6 +201,12 @@
             <circle class="glacier-dot" cx="175" cy="200" r="10" data-glacier="olivares" />
             <text class="glacier-label" x="150" y="195">Olivares</text>
           </svg>
+
+          <!-- Panel vacío (visible por defecto) -->
+          <div class="glacier-panel-empty" id="glacier-panel-empty">
+            <div class="empty-icon">🗺️</div>
+            <p>Toca un punto en el mapa<br/>para explorar ese glaciar</p>
+          </div>
 
           <!-- Panel de información de glaciar -->
           <div class="glacier-panel" id="glacier-panel">
