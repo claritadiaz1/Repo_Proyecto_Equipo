@@ -2,8 +2,20 @@ body{
   margin:0;
   font-family:sans-serif;
   background:#eaf6ff;
+  overflow-x:hidden;
 }
 
+/* ❄️ NIEVE */
+#tsparticles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* LOGO */
 header{
   position:fixed;
   top:10px;
@@ -15,9 +27,20 @@ header{
   width:120px;
 }
 
-.escena{
-  position:relative;
+/* INICIO */
+.inicio{
   height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+/* ESCENAS */
+.escena{
+  height:100vh;
+  position:relative;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -25,42 +48,19 @@ header{
   text-align:center;
 }
 
-#fondo{
+/* FONDO GLACIAR */
+.fondo{
   position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
   z-index:-1;
-  transition:2s;
+  transition:2s ease;
 }
 
-/* personaje */
-.personaje{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
+/* PERSONAJE */
 .personaje img{
   width:250px;
-  transition:1s;
-}
-
-/* globos de texto */
-.globo{
-  background:white;
-  padding:10px 15px;
-  border-radius:15px;
-  margin-top:10px;
-  max-width:300px;
-}
-
-/* datos */
-.datos{
-  margin-top:30px;
-}
-/* NUEVO: animaciones pro */
-.personaje img{
   opacity:0;
   transform:translateY(20px);
   transition:1.5s ease;
@@ -71,7 +71,13 @@ header{
   transform:translateY(0);
 }
 
+/* GLOBOS */
 .globo{
+  background:white;
+  padding:10px 15px;
+  border-radius:15px;
+  margin-top:10px;
+  max-width:300px;
   opacity:0;
   transform:scale(0.95);
   transition:1s ease;
@@ -80,4 +86,15 @@ header{
 .globo.show{
   opacity:1;
   transform:scale(1);
+}
+
+/* DATOS */
+.datos{
+  margin-top:30px;
+}
+
+/* MAPA */
+.mapa{
+  padding:80px;
+  text-align:center;
 }
