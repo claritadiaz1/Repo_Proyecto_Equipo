@@ -1,59 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-   <title>Voces del Hielo - Shoan</title>
-   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Voces del Hielo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<body>
+<!-- ❄️ NIEVE -->
+<div id="tsparticles"></div>
 
 <!-- LOGO -->
 <header>
   <img id="logo" src="img/logo.png" alt="Voces del Hielo">
 </header>
 
-<!-- PORTADA -->
+<!-- INICIO -->
 <section class="inicio">
   <h1>Voces del Hielo</h1>
-  <p>La historia de Shoan y su hogar que desaparece</p>
+  <p>La historia de Shoan y la pérdida de su hogar</p>
 </section>
 
 <!-- ESCENA 1 -->
-<section class="escena" id="escena1">
+<section class="escena">
 
-  <img id="fondo" src="img/glaciar1.png">
+  <img id="fondo" src="img/glaciar1.png" class="fondo">
 
   <div class="personaje">
     <img id="shoan" src="img/shoan-feliz.png">
-    <div class="globo">Me llamo Shoan… así me decían los tehuelches de la Patagonia.</div>
+    <div class="globo">Me llamo Shoan, así me decían los tehuelches de la Patagonia.</div>
   </div>
 
 </section>
 
 <!-- ESCENA 2 -->
-<section class="escena" id="escena2">
+<section class="escena">
 
   <div class="personaje">
     <img id="shoan2" src="img/shoan-preocupado.png">
-    <div class="globo">Ha cambiado mucho…</div>
+    <div class="globo">Ha cambiado mucho...</div>
   </div>
 
 </section>
 
 <!-- ESCENA 3 -->
-<section class="escena" id="escena3">
+<section class="escena">
 
   <div class="personaje">
     <img id="shoan3" src="img/shoan-triste.png">
-    <div class="globo">Estoy perdiendo mi hogar…</div>
+    <div class="globo">Estoy perdiendo mi hogar...</div>
   </div>
 
   <div class="datos">
-    <div class="globo">El retroceso de los glaciares afecta el agua dulce</div>
-    <div class="globo">El hábitat del huemul está en peligro</div>
+    <div class="globo">Los glaciares almacenan agua dulce vital</div>
+    <div class="globo">Su retroceso afecta ecosistemas completos</div>
+    <div class="globo">El huemul depende de este equilibrio</div>
   </div>
 
 </section>
@@ -68,10 +71,10 @@
 
 </section>
 
+<!-- LIBRERÍA NIEVE -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script src="script.js"></script>
+
 </body>
-
-
-</body>
-    <div id="tsparticles"></div>
-
 </html>
