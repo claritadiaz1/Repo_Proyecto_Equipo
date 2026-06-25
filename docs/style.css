@@ -60,7 +60,7 @@ a { color: var(--c-teal); text-decoration: none; }
 }
 
 .nav-logo img {
-  height: 42px;
+  height: 58px;
   width: auto;
   object-fit: contain;
 }
@@ -191,8 +191,10 @@ a { color: var(--c-teal); text-decoration: none; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 2rem;
-  padding-top: 80px;
+  gap: 1.5rem;
+  padding-top: 60px;
+  padding-bottom: 220px; /* deja espacio para Shoan abajo */
+  width: 100%;
 }
 
 .eyebrow {
@@ -221,7 +223,9 @@ a { color: var(--c-teal); text-decoration: none; }
   font-size: 1.05rem;
   color: var(--c-ice);
   opacity: 0.8;
-  max-width: 420px;
+  max-width: 480px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .scroll-hint {
@@ -262,10 +266,11 @@ a { color: var(--c-teal); text-decoration: none; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  bottom: 4%;
+  bottom: 2%;
   right: 4%;
   gap: 0;
-  max-width: 340px;
+  max-width: 320px;
+  /* Shoan aparece en la esquina inferior derecha, lejos del título central */
 }
 .shoan-left {
   flex-direction: row-reverse;
@@ -479,6 +484,25 @@ a { color: var(--c-teal); text-decoration: none; }
    ========================================= */
 .scene-4 { min-height: 100vh; }
 
+/* Shoan triste: imagen grande a la izquierda, globo a la derecha */
+.scene-4 .shoan-center {
+  flex-direction: row !important;
+  align-items: flex-end;
+  gap: 2rem;
+  text-align: left;
+  max-width: 860px;
+  margin-top: 2rem;
+}
+.scene-4 .shoan-big {
+  width: 280px !important;
+  flex-shrink: 0;
+}
+.scene-4 .bubble-center {
+  text-align: left;
+  max-width: 460px;
+}
+.scene-4 .bubble-center::after { display: none; }
+
 .cta-block {
   display: flex;
   flex-wrap: wrap;
@@ -520,27 +544,39 @@ a { color: var(--c-teal); text-decoration: none; }
    ========================================= */
 .scene-5 {
   background: linear-gradient(160deg, var(--c-deep) 0%, var(--c-navy) 100%);
-  min-height: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
-.scene-5 .scene-content { padding: 80px 0; }
+.scene-5 .scene-content {
+  padding: 90px 0 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .map-wrapper {
   display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  height: calc(100vh - 260px);
+  min-height: 500px;
+  max-height: 680px;
 }
 
 .map-container {
   position: relative;
-  flex: 0 0 320px;
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* SVG Chile */
 #chile-map {
   width: 100%;
-  max-width: 320px;
-  height: auto;
+  height: 100%;
+  max-width: 260px;
 }
 .chile-shape {
   fill: rgba(79,195,215,0.08);
@@ -568,11 +604,10 @@ a { color: var(--c-teal); text-decoration: none; }
   opacity: 0.8;
 }
 
-/* Panel de glaciar */
+/* Panel de glaciar — ocupa el resto del ancho, mismo alto que el mapa */
 .glacier-panel {
   display: none;
   flex: 1;
-  min-width: 280px;
   background: rgba(10,22,40,0.95);
   border: 1.5px solid var(--c-teal);
   border-radius: var(--radius);
@@ -580,8 +615,27 @@ a { color: var(--c-teal); text-decoration: none; }
   position: relative;
   animation: panelIn 0.4s ease;
   backdrop-filter: blur(10px);
+  overflow-y: auto;
 }
-.glacier-panel.open { display: block; }
+.glacier-panel.open { display: flex; flex-direction: column; }
+
+/* Panel vacío: hint visual */
+.glacier-panel-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10,22,40,0.6);
+  border: 1.5px dashed rgba(79,195,215,0.25);
+  border-radius: var(--radius);
+  color: var(--c-stone);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 2rem;
+  gap: 1rem;
+}
+.glacier-panel-empty .empty-icon { font-size: 2.5rem; opacity: 0.5; }
 
 @keyframes panelIn {
   from { opacity: 0; transform: translateX(20px); }
