@@ -98,3 +98,13 @@ header{
   padding:80px;
   text-align:center;
 }
+#datos{
+  padding:80px 20px;
+  text-align:center;
+  background:#eaf6ff;
+}
+
+#grafico{
+  max-width:700px;
+  margin:auto;
+}
