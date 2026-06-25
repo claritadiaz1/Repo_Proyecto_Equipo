@@ -1,3 +1,4 @@
+<script src="script.js"></script>
 tsParticles.load("tsparticles", {
   particles: {
     number: {
