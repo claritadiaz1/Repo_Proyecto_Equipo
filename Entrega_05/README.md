@@ -25,13 +25,11 @@ El objetivo del reportaje es acercar un problema complejo a un público general,
 
 ### ¿Se logró demostrar?
 
-Sí. La investigación permitió corroborar la hipótesis mediante la revisión de estudios científicos, informes de organismos especializados y datos que evidencian una pérdida sostenida de masa glaciar y su impacto en la disponibilidad de agua para los ecosistemas y las personas.
+Sí, la investigación permitió corroborar la hipótesis mediante la revisión de estudios científicos, informes de organismos especializados y datos que evidencian una pérdida sostenida de masa glaciar y su impacto en la disponibilidad de agua para los ecosistemas y las personas.
 
 ### Evolución de la hipótesis durante el proyecto
 
-Aunque la hipótesis se mantuvo, el enfoque del proyecto evolucionó significativamente.
-
-En una primera etapa, la propuesta estaba centrada en una **visualización de datos** sobre el deshielo de los glaciares. Sin embargo, durante el proceso de investigación, diseño y construcción de arquetipos de usuario, el equipo identificó que los datos por sí solos no generaban suficiente conexión con el público objetivo.
+Aunque la hipótesis se mantuvo, el enfoque del proyecto evolucionó significativamente. En una primera etapa, la propuesta estaba centrada en una **visualización de datos** sobre el deshielo de los glaciares. Sin embargo, durante el proceso de investigación, diseño y construcción de arquetipos de usuario, el equipo identificó que los datos por sí solos no generaban suficiente conexión con el público objetivo.
 
 Por ello, nació **Shoan**, un huemul que actúa como narrador de la historia. Este personaje permitió humanizar la problemática ambiental, guiando al usuario a través de un relato que combina información científica, fotografía documental, ilustración y recursos interactivos.
 
