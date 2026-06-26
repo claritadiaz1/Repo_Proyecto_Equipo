@@ -66,13 +66,15 @@
   <section id="historia" class="scene scene-2">
     <div class="scene-overlay scene-overlay-dark"></div>
     <div class="scene-content fade-in-section">
-      <div class="shoan-container shoan-left">
-        <div class="speech-bubble bubble-left" id="bubble-s2">
+
+      <!-- Shoan + globo en fila horizontal -->
+      <div class="s2-shoan-row">
+        <img src="img/shoan-preocupado.png" alt="Shoan preocupado" class="shoan-img shoan-worried s2-shoan-img" />
+        <div class="speech-bubble s2-bubble">
           <p>Hace 50 años, todo lo que ves a tu alrededor era hielo eterno.</p>
           <p>Hoy, ese hielo está desapareciendo más rápido de lo que nadie imaginó.</p>
           <p>Déjame mostrarte lo que los científicos han documentado...</p>
         </div>
-        <img src="img/shoan-preocupado.png" alt="Shoan preocupado" class="shoan-img shoan-worried" />
       </div>
 
       <!-- Datos estadísticos -->
@@ -166,49 +168,37 @@
 
       <!-- Mapa SVG interactivo de Chile con glaciares -->
       <div class="map-wrapper">
-        <div class="map-container">
-          <!-- Mapa Chile simplificado SVG -->
-          <svg id="chile-map" viewBox="0 0 300 700" xmlns="http://www.w3.org/2000/svg">
-            <!-- Silueta Chile simplificada -->
-            <path class="chile-shape" d="M160,20 L180,30 L195,60 L200,100 L195,140 L185,180 L175,220 L170,260 L165,300 L160,340 L155,380 L148,420 L140,460 L130,500 L120,540 L108,570 L95,590 L80,610 L65,630 L55,650 L50,670 L55,680 L70,670 L85,650 L100,625 L115,600 L125,570 L135,540 L145,500 L155,460 L163,420 L170,380 L175,340 L180,300 L185,260 L190,220 L195,180 L200,140 L205,100 L205,60 L195,30 L175,15 Z" />
 
-            <!-- Puntos de glaciares -->
-            <!-- Grey -->
+        <!-- COLUMNA IZQUIERDA: mapa de Chile -->
+        <div class="map-container">
+          <svg id="chile-map" viewBox="0 0 300 700" xmlns="http://www.w3.org/2000/svg">
+            <path class="chile-shape" d="M160,20 L180,30 L195,60 L200,100 L195,140 L185,180 L175,220 L170,260 L165,300 L160,340 L155,380 L148,420 L140,460 L130,500 L120,540 L108,570 L95,590 L80,610 L65,630 L55,650 L50,670 L55,680 L70,670 L85,650 L100,625 L115,600 L125,570 L135,540 L145,500 L155,460 L163,420 L170,380 L175,340 L180,300 L185,260 L190,220 L195,180 L200,140 L205,100 L205,60 L195,30 L175,15 Z" />
             <circle class="glacier-dot" cx="85" cy="590" r="10" data-glacier="grey" />
             <text class="glacier-label" x="100" y="594">Grey</text>
-
-            <!-- Tyndall -->
-            <circle class="glacier-dot" cx="90" cy="610" r="10" data-glacier="tyndall" />
-            <text class="glacier-label" x="105" y="614">Tyndall</text>
-
-            <!-- O'Higgins -->
+            <circle class="glacier-dot" cx="90" cy="613" r="10" data-glacier="tyndall" />
+            <text class="glacier-label" x="105" y="617">Tyndall</text>
             <circle class="glacier-dot" cx="105" cy="555" r="10" data-glacier="ohiggins" />
             <text class="glacier-label" x="120" y="559">O'Higgins</text>
-
-            <!-- San Rafael -->
             <circle class="glacier-dot" cx="125" cy="490" r="10" data-glacier="sanrafael" />
             <text class="glacier-label" x="140" y="494">San Rafael</text>
-
-            <!-- Exploradores -->
-            <circle class="glacier-dot" cx="130" cy="470" r="10" data-glacier="exploradores" />
-            <text class="glacier-label" x="145" y="474">Exploradores</text>
-
-            <!-- Norte: Tapado -->
+            <circle class="glacier-dot" cx="130" cy="468" r="10" data-glacier="exploradores" />
+            <text class="glacier-label" x="145" y="472">Exploradores</text>
             <circle class="glacier-dot" cx="170" cy="120" r="10" data-glacier="tapado" />
             <text class="glacier-label" x="145" y="115">El Tapado</text>
-
-            <!-- Olivares -->
             <circle class="glacier-dot" cx="175" cy="200" r="10" data-glacier="olivares" />
             <text class="glacier-label" x="150" y="195">Olivares</text>
           </svg>
+        </div>
 
-          <!-- Panel vacío (visible por defecto) -->
+        <!-- COLUMNA DERECHA: panel de información (siempre visible) -->
+        <div class="map-right-col">
+          <!-- Estado vacío -->
           <div class="glacier-panel-empty" id="glacier-panel-empty">
             <div class="empty-icon">🗺️</div>
             <p>Toca un punto en el mapa<br/>para explorar ese glaciar</p>
           </div>
 
-          <!-- Panel de información de glaciar -->
+          <!-- Panel con datos -->
           <div class="glacier-panel" id="glacier-panel">
             <button class="panel-close" id="panel-close">✕</button>
             <div class="panel-img-wrap">
@@ -237,12 +227,9 @@
               <p class="panel-desc" id="panel-desc">Descripción del glaciar.</p>
             </div>
           </div>
-        </div>
+        </div><!-- fin map-right-col -->
 
-        <div class="map-hint">
-          <span>← Toca un punto para explorar</span>
-        </div>
-      </div>
+      </div><!-- fin map-wrapper -->
     </div>
   </section>
 
