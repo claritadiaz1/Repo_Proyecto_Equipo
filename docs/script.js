@@ -440,20 +440,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const info = glacierData[key];
       if (!info) return;
 
-      // Update panel content
       document.getElementById('panel-name').textContent     = info.name;
       document.getElementById('panel-location').textContent = info.location;
       document.getElementById('panel-area').textContent     = info.area;
       document.getElementById('panel-retreat').textContent  = info.retreat;
       document.getElementById('panel-period').textContent   = info.period;
       document.getElementById('panel-desc').textContent     = info.desc;
-      document.getElementById('panel-img').innerHTML        = info.emoji;
+      document.getElementById('panel-img').textContent      = info.emoji;
 
-      // Active dot
       dots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
 
-      // Hide empty, show panel
+      // Ocultar estado vacío, mostrar panel con datos
       if (panelEmpty) panelEmpty.style.display = 'none';
       panel.classList.remove('open');
       requestAnimationFrame(() => panel.classList.add('open'));
