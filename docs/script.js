@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~4,5 km (1975–2023)',
       period: '1975 – 2023',
       desc: 'Uno de los glaciares más visitados de la Patagonia chilena. Ha retrocedido significativamente desde los años 70, perdiendo varias lenguas glaciares secundarias. Alimenta el Lago Grey y es parte del Campo de Hielo Sur.',
-      emoji: '🧊',
+      img: 'img/grey.png',
     },
     tyndall: {
       name: 'Glaciar Tyndall',
@@ -380,7 +380,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~6,4 km (1945–2023)',
       period: '1945 – 2023',
       desc: 'El Tyndall es uno de los que más retroceso ha registrado en el Campo de Hielo Sur. Su frente ha retrocedido más de 6 km y ha generado un nuevo lago proglacial. Es uno de los casos más documentados de deshielo acelerado en Chile.',
-      emoji: '🌊',
+      img: 'img/tyndall.png',
     },
     ohiggins: {
       name: "Glaciar O'Higgins",
@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~15 km (1896–2023)',
       period: '1896 – 2023',
       desc: "El O'Higgins es el mayor glaciar de América del Sur después de la Patagonia argentina. Ha registrado un retroceso de más de 15 km desde finales del siglo XIX. Hoy el acceso al frente del glaciar es posible por lago.",
-      emoji: '⛰️',
+      img: 'img/ohiggins.png',
     },
     sanrafael: {
       name: 'Glaciar San Rafael',
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~10 km (1870–2023)',
       period: '1870 – 2023',
       desc: 'El glaciar San Rafael es el único glaciar tropical/subtropical que llega al mar en el hemisferio sur. Ha retrocedido drásticamente desde el siglo XIX. Su frente produce grandes cantidades de témpanos que flotan en la Laguna San Rafael.',
-      emoji: '🌊',
+      img: 'img/sanrafael.png',
     },
     exploradores: {
       name: 'Glaciar Exploradores',
@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~2 km (1979–2023)',
       period: '1979 – 2023',
       desc: 'Ubicado en la Carretera Austral, el Exploradores ha retrocedido de forma constante. Es uno de los glaciares más accesibles del Campo de Hielo Norte y muy visitado por turistas. Su retroceso expone suelo virgen que es colonizado por nueva vegetación.',
-      emoji: '🌿',
+      img: 'img/exploradores.png',
     },
     tapado: {
       name: 'Glaciar El Tapado',
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~30% de superficie (1955–2020)',
       period: '1955 – 2020',
       desc: 'Glaciar ubicado en la Región de Coquimbo, en los Andes semiáridos. Es uno de los glaciares de roca más estudiados de Chile. Fundamental para el abastecimiento hídrico de la zona norte del país, donde la sequía es crónica.',
-      emoji: '☀️',
+      img: 'img/tapado.png',
     },
     olivares: {
       name: 'Glaciar Olivares',
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
       retreat: '~40% de masa (1955–2022)',
       period: '1955 – 2022',
       desc: 'El complejo Olivares, ubicado en la cordillera de Santiago, incluye glaciares descubiertos y de roca. Es fuente importante del río Olivares y afluente del Maipo. Ha perdido cerca del 40% de su masa en las últimas décadas por el calentamiento global y la megasequía.',
-      emoji: '🏔️',
+      img: 'img/olivares.png',
     },
   };
 
@@ -446,12 +446,14 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('panel-retreat').textContent  = info.retreat;
       document.getElementById('panel-period').textContent   = info.period;
       document.getElementById('panel-desc').textContent     = info.desc;
-      document.getElementById('panel-img').textContent      = info.emoji;
+
+      // Mostrar imagen real del glaciar
+      const imgEl = document.getElementById('panel-img');
+      imgEl.innerHTML = `<img src="${info.img}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />`;
 
       dots.forEach(d => d.classList.remove('active'));
       dot.classList.add('active');
 
-      // Ocultar estado vacío, mostrar panel con datos
       if (panelEmpty) panelEmpty.style.display = 'none';
       panel.classList.remove('open');
       requestAnimationFrame(() => panel.classList.add('open'));
