@@ -260,3 +260,44 @@ function showGlacier(key){
   emptyPanel.style.display="none";
   panel.classList.add("visible");
 }
+
+const compareCards=document.querySelectorAll(".compare-card");
+const comparePrev=document.querySelector(".compare-prev");
+const compareNext=document.querySelector(".compare-next");
+const compareDots=document.querySelector(".compare-dots");
+let compareIndex=0;
+
+if(compareCards.length&&compareDots){
+  compareCards.forEach((card,index)=>{
+    const dot=document.createElement("button");
+    dot.className="compare-dot";
+    dot.type="button";
+    dot.setAttribute("aria-label",`Ver comparación ${index+1}`);
+    dot.addEventListener("click",()=>showCompare(index));
+    compareDots.appendChild(dot);
+  });
+
+  showCompare(0);
+
+  comparePrev?.addEventListener("click",()=>{
+    showCompare(compareIndex-1);
+  });
+
+  compareNext?.addEventListener("click",()=>{
+    showCompare(compareIndex+1);
+  });
+}
+
+function showCompare(index){
+  if(!compareCards.length)return;
+
+  compareIndex=(index+compareCards.length)%compareCards.length;
+
+  compareCards.forEach((card,i)=>{
+    card.classList.toggle("active",i===compareIndex);
+  });
+
+  document.querySelectorAll(".compare-dot").forEach((dot,i)=>{
+    dot.classList.toggle("active",i===compareIndex);
+  });
+}
