@@ -1,502 +1,262 @@
-/* =========================================
-   VOCES DEL HIELO — script.js
-   ========================================= */
+const navbar=document.querySelector("#navbar");
+const navToggle=document.querySelector(".nav-toggle");
+const navLinks=document.querySelector(".nav-links");
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("scroll",()=>navbar.classList.toggle("scrolled",window.scrollY>40));
+navToggle?.addEventListener("click",()=>navLinks.classList.toggle("open"));
+navLinks?.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navLinks.classList.remove("open")));
 
-  /* ── 1. NAVBAR scroll ── */
-  const navbar = document.getElementById('navbar');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+const fadeObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("is-visible");
   });
-  navToggle?.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
+},{threshold:.16});
+document.querySelectorAll(".fade-in-section").forEach(section=>fadeObserver.observe(section));
+
+const statObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting||entry.target.dataset.counted)return;
+    entry.target.dataset.counted="true";
+    animateNumber(entry.target);
   });
-  navLinks?.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => navLinks.classList.remove('open'));
-  });
+},{threshold:.4});
+document.querySelectorAll(".stat-number").forEach(number=>statObserver.observe(number));
 
-  /* ── 2. NIEVE ── */
-  const canvas = document.getElementById('snow-canvas');
-  const ctx = canvas.getContext('2d');
-  let snowflakes = [];
-
-  function resizeCanvas() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
+function animateNumber(element){
+  const target=Number(element.dataset.target||0);
+  const duration=1300;
+  const start=performance.now();
+  function frame(now){
+    const progress=Math.min((now-start)/duration,1);
+    const eased=1-Math.pow(1-progress,3);
+    element.textContent=Math.round(target*eased).toLocaleString("es-CL");
+    if(progress<1)requestAnimationFrame(frame);
   }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  requestAnimationFrame(frame);
+}
 
-  function createSnowflake() {
-    return {
-      x: Math.random() * canvas.width,
-      y: Math.random() * -50,
-      r: Math.random() * 3 + 1,
-      speed: Math.random() * 1.2 + 0.4,
-      drift: (Math.random() - 0.5) * 0.5,
-      opacity: Math.random() * 0.6 + 0.2,
-    };
-  }
+const snowCanvas=document.querySelector("#snow-canvas");
+const snowCtx=snowCanvas?.getContext("2d");
+let flakes=[];
 
-  for (let i = 0; i < 120; i++) {
-    const sf = createSnowflake();
-    sf.y = Math.random() * canvas.height; // start spread
-    snowflakes.push(sf);
-  }
+function resizeSnow(){
+  if(!snowCanvas||!snowCtx)return;
+  const rect=snowCanvas.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  snowCanvas.width=rect.width*dpr;
+  snowCanvas.height=rect.height*dpr;
+  snowCtx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.floor(rect.width/9);
+  flakes=Array.from({length:count},()=>createFlake(rect.width,rect.height));
+}
 
-  function animateSnow() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    snowflakes.forEach((sf, i) => {
-      ctx.beginPath();
-      ctx.arc(sf.x, sf.y, sf.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(232,244,253,${sf.opacity})`;
-      ctx.fill();
-
-      sf.y += sf.speed;
-      sf.x += sf.drift;
-
-      if (sf.y > canvas.height + 10) {
-        snowflakes[i] = createSnowflake();
-      }
-    });
-    requestAnimationFrame(animateSnow);
-  }
-  animateSnow();
-
-  /* ── 3. FADE-IN SECTIONS con IntersectionObserver ── */
-  const fadeSections = document.querySelectorAll('.fade-in-section');
-  const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        fadeObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  fadeSections.forEach(s => fadeObserver.observe(s));
-
-  /* ── 4. CONTADORES ANIMADOS ── */
-  const statCards = document.querySelectorAll('.stat-card');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const card = e.target;
-        const delay = parseInt(card.dataset.delay) || 0;
-        setTimeout(() => {
-          card.classList.add('visible');
-          const el = card.querySelector('.stat-number');
-          const target = parseInt(el.dataset.target);
-          animateCounter(el, target);
-        }, delay);
-        counterObserver.unobserve(card);
-      }
-    });
-  }, { threshold: 0.2 });
-  statCards.forEach(c => counterObserver.observe(c));
-
-  function animateCounter(el, target) {
-    const duration = 1800;
-    const start = performance.now();
-    function tick(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  /* ── 5. GRÁFICO DE GLACIARES (Canvas puro) ── */
-  // Datos reales aproximados de retroceso (km²) de los glaciares más importantes de Chile
-  // Fuente: DGA Chile, CECS, Inventario de Glaciares 2022
-  const chartData = {
-    labels: [1975, 1985, 1995, 2005, 2015, 2023],
-    datasets: [
-      {
-        label: 'Glaciar Grey',
-        color: '#1a6ea8',        // azul oscuro
-        values: [100, 97, 93, 88, 82, 76],
-      },
-      {
-        label: 'Glaciar Tyndall',
-        color: '#00c9b1',        // calipso fuerte
-        values: [100, 96, 90, 83, 74, 66],
-      },
-      {
-        label: 'Glaciar San Rafael',
-        color: '#f0f8ff',        // blanco hielo
-        values: [100, 98, 95, 91, 87, 83],
-      },
-      {
-        label: "Glaciar O'Higgins",
-        color: '#7ec8e3',        // celeste claro
-        values: [100, 97, 92, 86, 79, 72],
-      },
-    ],
+function createFlake(width,height){
+  return {
+    x:Math.random()*width,
+    y:Math.random()*height,
+    radius:Math.random()*2.2+.8,
+    speed:Math.random()*.8+.25,
+    drift:Math.random()*.6-.3,
+    opacity:Math.random()*.55+.25
   };
+}
 
-  const glChart = document.getElementById('glacier-chart');
-  if (glChart) {
-    drawGlacierChart(glChart, chartData);
+function drawSnow(){
+  if(!snowCanvas||!snowCtx)return;
+  const rect=snowCanvas.getBoundingClientRect();
+  snowCtx.clearRect(0,0,rect.width,rect.height);
+  flakes.forEach(flake=>{
+    snowCtx.beginPath();
+    snowCtx.arc(flake.x,flake.y,flake.radius,0,Math.PI*2);
+    snowCtx.fillStyle=`rgba(240,248,255,${flake.opacity})`;
+    snowCtx.fill();
+    flake.y+=flake.speed;
+    flake.x+=flake.drift+Math.sin(flake.y*.015)*.15;
+    if(flake.y>rect.height+8){flake.y=-8;flake.x=Math.random()*rect.width}
+    if(flake.x<-8)flake.x=rect.width+8;
+    if(flake.x>rect.width+8)flake.x=-8;
+  });
+  requestAnimationFrame(drawSnow);
+}
+resizeSnow();
+drawSnow();
+window.addEventListener("resize",resizeSnow);
+
+const chartCanvas=document.querySelector("#glacier-chart");
+const chartCtx=chartCanvas?.getContext("2d");
+
+const chartData=[
+  {region:"Arica",rocoso:78,efluente:0,montana:14,glaciarete:8},
+  {region:"Coquimbo",rocoso:62,efluente:0,montana:28,glaciarete:10},
+  {region:"RM",rocoso:34,efluente:0,montana:48,glaciarete:18},
+  {region:"Aysén",rocoso:8,efluente:58,montana:24,glaciarete:10},
+  {region:"Magallanes",rocoso:4,efluente:68,montana:20,glaciarete:8}
+];
+
+const chartColors={rocoso:"#5B8C5A",efluente:"#7ec8e3",montana:"#f0f8ff",glaciarete:"#E8B84B"};
+
+function drawChart(){
+  if(!chartCanvas||!chartCtx)return;
+  const width=chartCanvas.width,height=chartCanvas.height;
+  chartCtx.clearRect(0,0,width,height);
+  chartCtx.fillStyle="#f0f8ff";
+  chartCtx.fillRect(0,0,width,height);
+
+  const padding={top:34,right:28,bottom:72,left:62};
+  const chartWidth=width-padding.left-padding.right;
+  const chartHeight=height-padding.top-padding.bottom;
+  const barGap=28;
+  const barWidth=(chartWidth-barGap*(chartData.length-1))/chartData.length;
+
+  chartCtx.strokeStyle="rgba(23,48,69,.18)";
+  chartCtx.lineWidth=1;
+  chartCtx.fillStyle="#173045";
+  chartCtx.font="600 12px Inter, sans-serif";
+  chartCtx.textAlign="right";
+
+  for(let tick=0;tick<=100;tick+=25){
+    const y=padding.top+chartHeight-(tick/100)*chartHeight;
+    chartCtx.beginPath();
+    chartCtx.moveTo(padding.left,y);
+    chartCtx.lineTo(width-padding.right,y);
+    chartCtx.stroke();
+    chartCtx.fillText(`${tick}%`,padding.left-10,y+4);
   }
 
-  function drawGlacierChart(canvas, data) {
-    const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
-    const PAD = { top: 30, right: 30, bottom: 50, left: 55 };
-    const chartW = W - PAD.left - PAD.right;
-    const chartH = H - PAD.top - PAD.bottom;
+  chartData.forEach((item,index)=>{
+    const x=padding.left+index*(barWidth+barGap);
+    let y=padding.top+chartHeight;
+    ["rocoso","efluente","montana","glaciarete"].forEach(key=>{
+      const valueHeight=(item[key]/100)*chartHeight;
+      y-=valueHeight;
+      chartCtx.fillStyle=chartColors[key];
+      chartCtx.fillRect(x,y,barWidth,valueHeight);
+      chartCtx.strokeStyle="rgba(23,48,69,.24)";
+      chartCtx.strokeRect(x,y,barWidth,valueHeight);
+    });
 
-    const years = data.labels;
-    const minY = 60, maxY = 105;
+    chartCtx.save();
+    chartCtx.translate(x+barWidth/2,height-padding.bottom+42);
+    chartCtx.rotate(-Math.PI/5);
+    chartCtx.fillStyle="#173045";
+    chartCtx.font="700 13px Inter, sans-serif";
+    chartCtx.textAlign="right";
+    chartCtx.fillText(item.region,0,0);
+    chartCtx.restore();
+  });
 
-    // Helpers
-    const xScale = i => PAD.left + (i / (years.length - 1)) * chartW;
-    const yScale = v => PAD.top + chartH - ((v - minY) / (maxY - minY)) * chartH;
+  chartCtx.fillStyle="#173045";
+  chartCtx.font="700 15px Inter, sans-serif";
+  chartCtx.textAlign="left";
+  chartCtx.fillText("Composición proporcional de tipos de glaciares por región",padding.left,22);
+}
+drawChart();
+window.addEventListener("resize",drawChart);
 
-    // Draw
-    function render() {
-      ctx.clearRect(0, 0, W, H);
-
-      // Background grid
-      ctx.strokeStyle = 'rgba(79,195,215,0.08)';
-      ctx.lineWidth = 1;
-      for (let v = minY; v <= maxY; v += 10) {
-        const y = yScale(v);
-        ctx.beginPath();
-        ctx.moveTo(PAD.left, y);
-        ctx.lineTo(W - PAD.right, y);
-        ctx.stroke();
-
-        // Y labels
-        ctx.fillStyle = 'rgba(140,165,184,0.8)';
-        ctx.font = '11px Inter, sans-serif';
-        ctx.textAlign = 'right';
-        ctx.fillText(v + '%', PAD.left - 8, y + 4);
-      }
-
-      // X labels
-      ctx.fillStyle = 'rgba(140,165,184,0.8)';
-      ctx.font = '11px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      years.forEach((yr, i) => {
-        ctx.fillText(yr, xScale(i), H - PAD.bottom + 20);
-      });
-
-      // Axes
-      ctx.strokeStyle = 'rgba(79,195,215,0.25)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(PAD.left, PAD.top);
-      ctx.lineTo(PAD.left, PAD.top + chartH);
-      ctx.lineTo(W - PAD.right, PAD.top + chartH);
-      ctx.stroke();
-
-      // Area + lines
-      data.datasets.forEach((ds) => {
-        const pts = ds.values.map((v, i) => ({ x: xScale(i), y: yScale(v) }));
-
-        // Area fill
-        ctx.beginPath();
-        ctx.moveTo(pts[0].x, yScale(minY));
-        pts.forEach(p => ctx.lineTo(p.x, p.y));
-        ctx.lineTo(pts[pts.length - 1].x, yScale(minY));
-        ctx.closePath();
-        const grad = ctx.createLinearGradient(0, PAD.top, 0, PAD.top + chartH);
-        grad.addColorStop(0, ds.color + '33');
-        grad.addColorStop(1, ds.color + '05');
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        // Line
-        ctx.beginPath();
-        pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
-        ctx.strokeStyle = ds.color;
-        ctx.lineWidth = 2.5;
-        ctx.lineJoin = 'round';
-        ctx.stroke();
-
-        // Dots
-        pts.forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-          ctx.fillStyle = ds.color;
-          ctx.fill();
-          ctx.strokeStyle = '#0a1628';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-        });
-      });
-
-      // Y-axis label
-      ctx.save();
-      ctx.translate(14, PAD.top + chartH / 2);
-      ctx.rotate(-Math.PI / 2);
-      ctx.fillStyle = 'rgba(140,165,184,0.6)';
-      ctx.font = '11px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Superficie relativa (%)', 0, 0);
-      ctx.restore();
-    }
-
-    // Animate lines appearing
-    let progress = 0;
-    const totalFrames = 80;
-
-    function renderAnimated() {
-      ctx.clearRect(0, 0, W, H);
-
-      // Grid y ejes (igual que antes)
-      ctx.strokeStyle = 'rgba(79,195,215,0.08)';
-      ctx.lineWidth = 1;
-      for (let v = minY; v <= maxY; v += 10) {
-        const y = yScale(v);
-        ctx.beginPath();
-        ctx.moveTo(PAD.left, y);
-        ctx.lineTo(W - PAD.right, y);
-        ctx.stroke();
-        ctx.fillStyle = 'rgba(140,165,184,0.8)';
-        ctx.font = '11px Inter, sans-serif';
-        ctx.textAlign = 'right';
-        ctx.fillText(v + '%', PAD.left - 8, y + 4);
-      }
-      ctx.fillStyle = 'rgba(140,165,184,0.8)';
-      ctx.font = '11px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      years.forEach((yr, i) => ctx.fillText(yr, xScale(i), H - PAD.bottom + 20));
-
-      ctx.strokeStyle = 'rgba(79,195,215,0.25)';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(PAD.left, PAD.top);
-      ctx.lineTo(PAD.left, PAD.top + chartH);
-      ctx.lineTo(W - PAD.right, PAD.top + chartH);
-      ctx.stroke();
-
-      ctx.save();
-      ctx.translate(14, PAD.top + chartH / 2);
-      ctx.rotate(-Math.PI / 2);
-      ctx.fillStyle = 'rgba(140,165,184,0.6)';
-      ctx.font = '11px Inter, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('Superficie relativa (%)', 0, 0);
-      ctx.restore();
-
-      // Lines animadas
-      const pct = Math.min(progress / totalFrames, 1);
-      const eased = 1 - Math.pow(1 - pct, 2);
-      const maxIndex = eased * (years.length - 1);
-
-      data.datasets.forEach((ds) => {
-        const pts = ds.values.map((v, i) => ({ x: xScale(i), y: yScale(v) }));
-        const visiblePts = [];
-        for (let i = 0; i <= maxIndex && i < pts.length; i++) {
-          if (i < Math.floor(maxIndex)) {
-            visiblePts.push(pts[i]);
-          } else {
-            // Interpolate last point
-            const prev = pts[Math.floor(maxIndex - 1)] || pts[0];
-            const next = pts[Math.min(Math.ceil(maxIndex), pts.length - 1)];
-            const t = maxIndex - Math.floor(maxIndex);
-            visiblePts.push({
-              x: prev.x + (next.x - prev.x) * t,
-              y: prev.y + (next.y - prev.y) * t,
-            });
-          }
-        }
-        if (visiblePts.length < 2) return;
-
-        // Area
-        ctx.beginPath();
-        ctx.moveTo(visiblePts[0].x, yScale(minY));
-        visiblePts.forEach(p => ctx.lineTo(p.x, p.y));
-        ctx.lineTo(visiblePts[visiblePts.length - 1].x, yScale(minY));
-        ctx.closePath();
-        const grad = ctx.createLinearGradient(0, PAD.top, 0, PAD.top + chartH);
-        grad.addColorStop(0, ds.color + '33');
-        grad.addColorStop(1, ds.color + '05');
-        ctx.fillStyle = grad;
-        ctx.fill();
-
-        // Line
-        ctx.beginPath();
-        visiblePts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
-        ctx.strokeStyle = ds.color;
-        ctx.lineWidth = 2.5;
-        ctx.lineJoin = 'round';
-        ctx.stroke();
-
-        // Dots (solo los completados)
-        pts.slice(0, Math.floor(maxIndex) + 1).forEach(p => {
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
-          ctx.fillStyle = ds.color;
-          ctx.fill();
-          ctx.strokeStyle = '#0a1628';
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-        });
-      });
-
-      if (progress < totalFrames) {
-        progress++;
-        requestAnimationFrame(renderAnimated);
-      } else {
-        render(); // final clean render
-      }
-    }
-
-    // Solo animar cuando sea visible
-    const chartObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        renderAnimated();
-        chartObserver.disconnect();
-      }
-    }, { threshold: 0.3 });
-    chartObserver.observe(canvas);
+const glacierData={
+  tapado:{
+    name:"Glaciar El Tapado",
+    location:"Coquimbo",
+    area:"5.550 msnm",
+    retreat:"Más de un tercio de su superficie",
+    period:"Desde 1955",
+    image:"img/tapado.png",
+    desc:"El glaciar más estudiado del norte chico y una de las principales reservas hídricas de la cuenca del Elqui."
+  },
+  olivares:{
+    name:"Glaciar Olivares",
+    location:"Región Metropolitana",
+    area:"Cuenca del río Olivares",
+    retreat:"Retroceso acelerado",
+    period:"Desde los años 2000",
+    image:"img/olivares.png",
+    desc:"Complejo de glaciares afluente del Mapocho. Sus aguas son esenciales para el abastecimiento de Santiago."
+  },
+  exploradores:{
+    name:"Glaciar Exploradores",
+    location:"Aysén",
+    area:"Campo de Hielo Norte",
+    retreat:"Indicador clave del campo de hielo",
+    period:"Registro reciente",
+    image:"img/exploradores.png",
+    desc:"Lengua glaciar que desciende hacia el fiordo homónimo. Es uno de los glaciares más accesibles de la Patagonia."
+  },
+  ohiggins:{
+    name:"Glaciar O'Higgins",
+    location:"Aysén",
+    area:"Campos de Hielo Sur",
+    retreat:"Más de 14 km",
+    period:"Desde principios del siglo XX",
+    image:"img/ohiggins.png",
+    desc:"El mayor glaciar de los Campos de Hielo Sur en territorio chileno. Su retroceso dejó atrás un lago glaciar de aguas azul turquesa."
+  },
+  sanrafael:{
+    name:"Glaciar San Rafael",
+    location:"Aysén",
+    area:"Llega al nivel del mar",
+    retreat:"Produce icebergs en retroceso",
+    period:"Últimas décadas",
+    image:"img/sanrafael.png",
+    desc:"Una lengua de hielo que llega hasta el nivel del mar y produce icebergs. Es una de las maravillas naturales de Chile."
+  },
+  tyndall:{
+    name:"Glaciar Tyndall",
+    location:"Magallanes",
+    area:"Campo de Hielo Sur",
+    retreat:"Creó el lago Geike",
+    period:"Últimas décadas",
+    image:"img/tyndall.png",
+    desc:"Parte del Parque Nacional Torres del Paine. Es uno de los glaciares más visitados de la Patagonia y uno de los que más rápido retrocede."
+  },
+  grey:{
+    name:"Glaciar Grey",
+    location:"Magallanes",
+    area:"Lago Grey",
+    retreat:"Más de 4 km² de superficie",
+    period:"Últimas décadas",
+    image:"img/grey.png",
+    desc:"Imponente glaciar del Campo de Hielo Sur, accesible desde Torres del Paine. Sus icebergs flotan en el lago Grey."
   }
+};
 
-  /* ── 6. MAPA INTERACTIVO DE GLACIARES ── */
-  const glacierData = {
-    grey: {
-      name: 'Glaciar Grey',
-      location: 'Torres del Paine, Magallanes',
-      area: '270 km²',
-      retreat: '~4,5 km (1975–2023)',
-      period: '1975 – 2023',
-      desc: 'Uno de los glaciares más visitados de la Patagonia chilena. Ha retrocedido significativamente desde los años 70, perdiendo varias lenguas glaciares secundarias. Alimenta el Lago Grey y es parte del Campo de Hielo Sur.',
-      img: 'img/grey.png',
-    },
-    tyndall: {
-      name: 'Glaciar Tyndall',
-      location: 'Torres del Paine, Magallanes',
-      area: '331 km²',
-      retreat: '~6,4 km (1945–2023)',
-      period: '1945 – 2023',
-      desc: 'El Tyndall es uno de los que más retroceso ha registrado en el Campo de Hielo Sur. Su frente ha retrocedido más de 6 km y ha generado un nuevo lago proglacial. Es uno de los casos más documentados de deshielo acelerado en Chile.',
-      img: 'img/tyndall.png',
-    },
-    ohiggins: {
-      name: "Glaciar O'Higgins",
-      location: 'Aysén, Campo de Hielo Sur',
-      area: '815 km²',
-      retreat: '~15 km (1896–2023)',
-      period: '1896 – 2023',
-      desc: "El O'Higgins es el mayor glaciar de América del Sur después de la Patagonia argentina. Ha registrado un retroceso de más de 15 km desde finales del siglo XIX. Hoy el acceso al frente del glaciar es posible por lago.",
-      img: 'img/ohiggins.png',
-    },
-    sanrafael: {
-      name: 'Glaciar San Rafael',
-      location: 'Aysén, Campo de Hielo Norte',
-      area: '760 km²',
-      retreat: '~10 km (1870–2023)',
-      period: '1870 – 2023',
-      desc: 'El glaciar San Rafael es el único glaciar tropical/subtropical que llega al mar en el hemisferio sur. Ha retrocedido drásticamente desde el siglo XIX. Su frente produce grandes cantidades de témpanos que flotan en la Laguna San Rafael.',
-      img: 'img/sanrafael.png',
-    },
-    exploradores: {
-      name: 'Glaciar Exploradores',
-      location: 'Aysén, Campo de Hielo Norte',
-      area: '~83 km²',
-      retreat: '~2 km (1979–2023)',
-      period: '1979 – 2023',
-      desc: 'Ubicado en la Carretera Austral, el Exploradores ha retrocedido de forma constante. Es uno de los glaciares más accesibles del Campo de Hielo Norte y muy visitado por turistas. Su retroceso expone suelo virgen que es colonizado por nueva vegetación.',
-      img: 'img/exploradores.png',
-    },
-    tapado: {
-      name: 'Glaciar El Tapado',
-      location: 'Coquimbo, Andes semiáridos',
-      area: '~1,8 km²',
-      retreat: '~30% de superficie (1955–2020)',
-      period: '1955 – 2020',
-      desc: 'Glaciar ubicado en la Región de Coquimbo, en los Andes semiáridos. Es uno de los glaciares de roca más estudiados de Chile. Fundamental para el abastecimiento hídrico de la zona norte del país, donde la sequía es crónica.',
-      img: 'img/tapado.png',
-    },
-    olivares: {
-      name: 'Glaciar Olivares',
-      location: 'Región Metropolitana, Andes',
-      area: '~4 km²',
-      retreat: '~40% de masa (1955–2022)',
-      period: '1955 – 2022',
-      desc: 'El complejo Olivares, ubicado en la cordillera de Santiago, incluye glaciares descubiertos y de roca. Es fuente importante del río Olivares y afluente del Maipo. Ha perdido cerca del 40% de su masa en las últimas décadas por el calentamiento global y la megasequía.',
-      img: 'img/olivares.png',
-    },
-  };
+const panel=document.querySelector("#glacier-panel");
+const emptyPanel=document.querySelector("#glacier-panel-empty");
+const panelClose=document.querySelector("#panel-close");
+const panelImg=document.querySelector("#panel-img");
+const panelName=document.querySelector("#panel-name");
+const panelLocation=document.querySelector("#panel-location");
+const panelArea=document.querySelector("#panel-area");
+const panelRetreat=document.querySelector("#panel-retreat");
+const panelPeriod=document.querySelector("#panel-period");
+const panelDesc=document.querySelector("#panel-desc");
 
-  const dots = document.querySelectorAll('.glacier-dot');
-  const panel = document.getElementById('glacier-panel');
-  const panelEmpty = document.getElementById('glacier-panel-empty');
-  const panelClose = document.getElementById('panel-close');
-
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const key = dot.dataset.glacier;
-      const info = glacierData[key];
-      if (!info) return;
-
-      document.getElementById('panel-name').textContent     = info.name;
-      document.getElementById('panel-location').textContent = info.location;
-      document.getElementById('panel-area').textContent     = info.area;
-      document.getElementById('panel-retreat').textContent  = info.retreat;
-      document.getElementById('panel-period').textContent   = info.period;
-      document.getElementById('panel-desc').textContent     = info.desc;
-
-      // Mostrar imagen real del glaciar
-      const imgEl = document.getElementById('panel-img');
-      imgEl.innerHTML = `<img src="${info.img}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;" />`;
-
-      dots.forEach(d => d.classList.remove('active'));
-      dot.classList.add('active');
-
-      if (panelEmpty) panelEmpty.style.display = 'none';
-      panel.classList.remove('open');
-      requestAnimationFrame(() => panel.classList.add('open'));
-    });
+document.querySelectorAll(".glacier-dot").forEach(dot=>{
+  dot.addEventListener("click",()=>{
+    document.querySelectorAll(".glacier-dot").forEach(item=>item.classList.remove("active"));
+    dot.classList.add("active");
+    showGlacier(dot.dataset.glacier);
   });
-
-  panelClose?.addEventListener('click', () => {
-    panel.classList.remove('open');
-    if (panelEmpty) panelEmpty.style.display = '';
-    dots.forEach(d => d.classList.remove('active'));
-  });
-
-  /* ── 7. PARALLAX suave en hero ── */
-  const heroBg = document.getElementById('glacier-bg');
-  const heroContent = document.getElementById('hero-content');
-  const shoanS1 = document.getElementById('shoan-s1');
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const viewH = window.innerHeight;
-
-    // Solo en la primera pantalla
-    if (scrollY < viewH * 1.5) {
-      if (heroBg) heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
-      if (heroContent) heroContent.style.transform = `translateY(${scrollY * 0.15}px)`;
-      if (shoanS1) shoanS1.style.transform = `translateY(${-scrollY * 0.1}px)`;
-    }
-  }, { passive: true });
-
-  /* ── 8. Nav links active section highlight ── */
-  const sections = document.querySelectorAll('section[id], footer[id]');
-  const navItems = document.querySelectorAll('.nav-links a');
-
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navItems.forEach(a => a.style.color = '');
-        const activeA = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-        if (activeA) activeA.style.color = 'var(--c-teal)';
-      }
-    });
-  }, { rootMargin: '-40% 0px -40% 0px' });
-
-  sections.forEach(s => sectionObserver.observe(s));
-
 });
+
+panelClose?.addEventListener("click",()=>{
+  panel.classList.remove("visible");
+  emptyPanel.style.display="grid";
+  document.querySelectorAll(".glacier-dot").forEach(item=>item.classList.remove("active"));
+});
+
+function showGlacier(key){
+  const data=glacierData[key];
+  if(!data)return;
+
+  panelImg.innerHTML=`<img src="${data.image}" alt="${data.name}" class="panel-photo">`;
+
+  panelName.textContent=data.name;
+  panelLocation.textContent=data.location;
+  panelArea.textContent=data.area;
+  panelRetreat.textContent=data.retreat;
+  panelPeriod.textContent=data.period;
+  panelDesc.textContent=data.desc;
+
+  emptyPanel.style.display="none";
+  panel.classList.add("visible");
+}
