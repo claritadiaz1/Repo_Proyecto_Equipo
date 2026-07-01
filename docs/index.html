@@ -3,247 +3,337 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voces del Hielo</title>
+  <title>Shoan - Mi hogar se está derritiendo</title>
+  <meta name="description" content="Shoan es un huemul que vive en la Patagonia. Esta es la historia del deshielo de los glaciares de Chile, contada por él." />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <!-- ===================== NAV ===================== -->
   <nav id="navbar">
-    <div class="nav-logo">
-      <img src="img/logo.png" alt="Voces del Hielo logo" />
-    </div>
+    <a class="nav-logo" href="#inicio"><img src="img/logo.png" alt="Shoan logo" /></a>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#historia">Historia</a></li>
       <li><a href="#datos">Datos</a></li>
+      <li><a href="#tipos">Tipos</a></li>
       <li><a href="#glaciares">Glaciares</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#comunidades">Personas</a></li>
+      <li><a href="#contacto">Actúa</a></li>
     </ul>
     <button class="nav-toggle" aria-label="Abrir menú">☰</button>
   </nav>
 
-  <!-- ===================== ESCENA 1: BIENVENIDA ===================== -->
   <section id="inicio" class="scene scene-1">
-    <!-- Canvas nieve -->
     <canvas id="snow-canvas"></canvas>
-
-    <!-- Fondo glaciar -->
     <div class="glacier-bg" id="glacier-bg">
       <img src="img/glaciar1.png" alt="Glaciar patagónico" class="bg-img" id="glaciar1" />
       <img src="img/glaciar2.png" alt="Glaciar derretido" class="bg-img hidden" id="glaciar2" />
     </div>
-
-    <!-- Overlay oscuro -->
     <div class="scene-overlay"></div>
 
-    <!-- Hero content -->
     <div class="hero-content" id="hero-content">
       <div class="title-block">
-        <p class="eyebrow">Una historia de la Patagonia</p>
-        <h1 class="main-title">Voces del<br/><em>Hielo</em></h1>
-        <p class="subtitle">El testimonio de Shoan, el último espíritu del glaciar</p>
+        <p class="eyebrow">Proyecto Shoan · Periodismo de Datos · 2026</p>
+        <h1 class="main-title">Mi hogar se está<br><em>derritiendo</em></h1>
+        <p class="subtitle">La historia del deshielo en Chile, contada por su guardián</p>
       </div>
-      <div class="scroll-hint">
-        <span>Baja para comenzar</span>
-        <div class="scroll-arrow"></div>
-      </div>
+      <a class="btn-primary hero-button" href="#historia">Conoce mi historia</a>
+      <div class="scroll-hint"><span>Baja para continuar</span><div class="scroll-arrow"></div></div>
     </div>
 
-    <!-- Shoan escena 1 -->
     <div class="shoan-container" id="shoan-s1">
       <img src="img/shoan-feliz.png" alt="Shoan feliz" class="shoan-img" id="shoan-img-s1" />
+    
       <div class="speech-bubble" id="bubble-s1">
-        <p>¡Hola! Me llamo <strong>Shoan</strong>.</p>
-        <p>Así me llamaban los <em>tehuelches</em>, los primeros pueblos que habitaron estas tierras de la Patagonia. Ellos vivían junto al hielo, y aprendieron a escucharlo.</p>
-        <p>Este glaciar es mi hogar. ¿Quieres que te cuente su historia?</p>
-      </div>
+  <p>¡Hola! Me llamo <strong>Shoan</strong>.</p>
+  <p>Así me llamaban los <em>tehuelches</em>, los primeros pueblos que habitaron estas tierras de la Patagonia.</p>
+  <p>Ellos vivían junto al hielo y aprendieron a escucharlo. Hoy quiero contarte lo que el hielo está diciendo.</p>
+</div>
+      
     </div>
   </section>
 
-  <!-- ===================== ESCENA 2: PREOCUPACIÓN ===================== -->
   <section id="historia" class="scene scene-2">
     <div class="scene-overlay scene-overlay-dark"></div>
     <div class="scene-content fade-in-section">
-
-      <!-- Shoan + globo en fila horizontal -->
       <div class="s2-shoan-row">
         <img src="img/shoan-preocupado.png" alt="Shoan preocupado" class="shoan-img shoan-worried s2-shoan-img" />
         <div class="speech-bubble s2-bubble">
-          <p>Hace 50 años, todo lo que ves a tu alrededor era hielo eterno.</p>
-          <p>Hoy, ese hielo está desapareciendo más rápido de lo que nadie imaginó.</p>
-          <p>Déjame mostrarte lo que los científicos han documentado...</p>
+          <p>Pero he empezado a notar que algo está cambiando.</p>
+          <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin se está derritiendo cada vez más rápido.</p>
+          <p>Déjame mostrarte lo que está pasando...</p>
         </div>
       </div>
 
-      <!-- Datos estadísticos -->
+      <div class="story-panel">
+        <div class="section-header">
+          <p class="eyebrow">La historia</p>
+          <h2>SHOAN</h2>
+        </div>
+        <p>Soy un huemul y vivo en la Patagonia. Durante toda mi vida, los glaciares de la Cordillera Darwin han sido parte de mi hogar. Ellos alimentan los ríos donde bebo, mantienen vivos los bosques que me protegen y dan vida a muchas otras especies que habitan este lugar.</p>
+        <p>Pero he empezado a notar que algo está cambiando.</p>
+        <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin, uno de los más australes del planeta y una de las mayores reservas de agua dulce de Chile, se está derritiendo cada vez más rápido. El aumento de las temperaturas y la llegada de vientos más cálidos está acelerando el deshielo. Cada año se pierden, en promedio, 18 centímetros de hielo.</p>
+      </div>
+
       <div class="stats-grid">
-        <div class="stat-card" data-delay="0">
-          <span class="stat-number" data-target="82">0</span><span class="stat-unit">%</span>
-          <p class="stat-label">de los glaciares chilenos está en retroceso</p>
-        </div>
-        <div class="stat-card" data-delay="200">
-          <span class="stat-number" data-target="1500">0</span><span class="stat-unit">+</span>
-          <p class="stat-label">glaciares documentados en Chile, el mayor inventario de América del Sur</p>
-        </div>
-        <div class="stat-card" data-delay="400">
-          <span class="stat-number" data-target="60">0</span><span class="stat-unit">%</span>
-          <p class="stat-label">del agua dulce de Chile depende de glaciares y nieves eternas</p>
-        </div>
-        <div class="stat-card" data-delay="600">
-          <span class="stat-number" data-target="103">0</span><span class="stat-unit">m</span>
-          <p class="stat-label">retrocedió el Glaciar Tyndall solo entre 1975 y 2000</p>
-        </div>
+        <div class="stat-card"><span class="stat-number" data-target="18">0</span><span class="stat-unit">cm</span><p class="stat-label">de hielo se pierden cada año en la Cordillera Darwin - Fuente: CR2 / DGA</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="80">0</span><span class="stat-unit">%</span><p class="stat-label">de los glaciares de Sudamérica están en Chile - Fuente: DGA / IPG 2022</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="6">0</span><span class="stat-unit"></span><p class="stat-label">proyectos de ley de protección glaciar se han presentado en 20 años sin terminar su tramitación</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="16">0</span><span class="stat-unit">%</span><p class="stat-label">de capacidad registraron los embalses de Coquimbo en 2024, según datos de la DGA</p></div>
+      </div>
+
+      <div class="story-panel">
+        <p>Aunque a simple vista parezca solo un cambio en el paisaje, el deshielo afecta a todo mi hogar. El agua dulce que liberan los glaciares llega a los fiordos y al canal Beagle, cambia la salinidad del mar y pone en riesgo a las especies marinas, los ecosistemas costeros y a las personas que viven de la pesca.</p>
+        <p>Y este problema no ocurre solo aquí.</p>
+        <p>Chile alberga cerca del 80% de los glaciares de Sudamérica, por lo que protegerlos significa cuidar una de las principales reservas de agua del continente. Si el deshielo continúa acelerándose, las consecuencias serán cada vez más graves para la biodiversidad, para las personas... y también para mí y mi familia.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ESCENA 3: GRÁFICO ===================== -->
   <section id="datos" class="scene scene-3">
     <div class="scene-content fade-in-section">
       <div class="section-header">
-        <p class="eyebrow">Los números no mienten</p>
-        <h2>Lo que los científicos<br/>han registrado</h2>
+        <p class="eyebrow">Los datos detrás del hielo</p>
+        <h2>Dos formas de mirar<br>el mismo deshielo</h2>
       </div>
 
       <div class="shoan-intro-chart">
         <img src="img/shoan-preocupado.png" alt="Shoan mostrando datos" class="shoan-small" />
         <div class="speech-bubble bubble-inline">
-          <p>Los científicos han documentado este cambio. Mira cómo han retrocedido los glaciares más importantes de Chile con los años.</p>
+          <p>Dos gráficos que se leen juntos. El primero muestra qué tipo de glaciar predomina en cada región. El segundo revela cuántos hay en realidad.</p>
+          <p>Para entender el problema, los dos son necesarios.</p>
         </div>
       </div>
 
-      <!-- Gráfico SVG / Canvas -->
+      <div class="note-box">
+        <p><strong>¿Por qué dos gráficos?</strong> El gráfico al 100% permite comparar regiones muy distintas, pero oculta cuántos glaciares tiene cada una. Para entender por qué Ñuble, Biobío y La Araucanía se ven "normales" en el primero, hay que mirar el segundo.</p>
+      </div>
+
       <div class="chart-wrapper">
         <div class="chart-legend">
-          <span class="legend-item"><span class="dot" style="background:#1a6ea8"></span>Glaciar Grey</span>
-          <span class="legend-item"><span class="dot" style="background:#00c9b1"></span>Glaciar Tyndall</span>
-          <span class="legend-item"><span class="dot" style="background:#f0f8ff; border:1px solid #8ca5b8"></span>Glaciar San Rafael</span>
-          <span class="legend-item"><span class="dot" style="background:#7ec8e3"></span>Glaciar O'Higgins</span>
+          <span class="legend-item"><span class="dot" style="background:#5B8C5A"></span>Glaciar rocoso</span>
+          <span class="legend-item"><span class="dot" style="background:#7ec8e3"></span>Glaciar efluente</span>
+          <span class="legend-item"><span class="dot" style="background:#f0f8ff;border:1px solid #8ca5b8"></span>Glaciar de montaña</span>
+          <span class="legend-item"><span class="dot" style="background:#E8B84B"></span>Glaciarete</span>
         </div>
         <canvas id="glacier-chart" width="900" height="420"></canvas>
-        <p class="chart-source">Fuente: DGA Chile, CONAF, Centro de Estudios Científicos (CECS) · Datos 1975–2023</p>
+        <p class="chart-source">Composición referencial por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</p>
+      </div>
+
+      <div class="visual-grid">
+        <article class="visual-card">
+          <p class="eyebrow">Gráfico 1 - Composición proporcional</p>
+          <h3>¿Qué tipo de glaciar predomina en cada región?</h3>
+          <p>Cada barra representa el 100% de los glaciares de una región, dividida por tipo. Las regiones están ordenadas de norte a sur.</p>
+          <figure>
+            <img src="img/visualizacion.webp" alt="Gráfico de barras apiladas al 100% que muestra la composición porcentual de tipos de glaciares por región en Chile." />
+            <figcaption>Composición porcentual por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+          </figure>
+        </article>
+
+        <article class="visual-card">
+          <p class="eyebrow">Gráfico 2 - Distribución absoluta</p>
+          <h3>¿Cuántos glaciares tiene cada región?</h3>
+          <p>El mismo desglose por tipo, pero ahora el eje Y muestra el número real de glaciares. Aysén y Magallanes concentran la inmensa mayoría. Ñuble y Biobío casi no se ven.</p>
+          <figure>
+            <img src="img/glaciares_absolutos.svg" alt="Gráfico de barras apiladas con valores absolutos de glaciares por región en Chile." />
+            <figcaption>Distribución absoluta por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+          </figure>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ESCENA 4: TRISTEZA ===================== -->
-  <section class="scene scene-4">
-    <div class="glacier-bg-melted">
-      <img src="img/glaciar2.png" alt="Glaciar derretido" class="bg-img" />
-    </div>
+  <section id="tipos" class="scene scene-4">
+    <div class="glacier-bg-melted"><img src="img/glaciar2.png" alt="Glaciar derretido" class="bg-img" /></div>
     <div class="scene-overlay scene-overlay-warm"></div>
-    <div class="scene-content scene-content-centered fade-in-section">
+    <div class="scene-content fade-in-section">
+      <div class="section-header">
+        <p class="eyebrow">No todos los glaciares son iguales</p>
+        <h2>El hielo visible<br>y el hielo escondido</h2>
+      </div>
+
       <div class="shoan-container shoan-center">
         <img src="img/shoan-triste.png" alt="Shoan triste" class="shoan-img shoan-big" />
-        <div class="speech-bubble bubble-center" id="bubble-s4">
-          <p>Cada año que pasa, mi hogar se hace más pequeño.</p>
-          <p>No es solo un glaciar. Es agua dulce para millones de personas. Es el ecosistema de la Patagonia. Es memoria de miles de años.</p>
-          <p><strong>Aún hay tiempo de actuar. Pero necesito tu voz.</strong></p>
+        <div class="speech-bubble bubble-center">
+          <p>Hay quienes creen que un glaciar es siempre una montaña blanca imponente.</p>
+          <p>Pero los glaciares del norte de Chile son de roca y polvo. Y los del sur son lenguas de hielo que llegan al mar.</p>
+          <p><strong>Conocer sus diferencias es clave para entender el problema.</strong></p>
         </div>
       </div>
 
-      <div class="cta-block">
-        <a href="https://www.glaciareschilenos.org/?gad_source=1&gad_campaignid=22274214877&gbraid=0AAAAApZYAH20vpkG1BvnPzipxLoZugpwn&gclid=Cj0KCQjwo_PRBhDNARIsAEcVALUFXZKH2dKLRykOyE4m3wzeiX5tQrMyJLgnCKhfcctvSfqGkAhlBi0aAlghEALw_wcB" target="_blank" class="btn-primary">Conoce la campaña por la Ley de Glaciares</a>
-        <a href="https://www.fundacionaquae.org/wiki/chile-pierde-200-glaciares-por-la-crisis-climatica/amp/?gad_source=1&gad_campaignid=11897504359&gbraid=0AAAAABxiIaR1l5logukcqEs9A5kV18x8N&gclid=Cj0KCQjwo_PRBhDNARIsAEcVALUOAuDnISjs8bqulM_-a2VbHbkiIvXgTsa0mGTRM__QzQHxoT0ENswaAsn5EALw_wcB" target="_blank" class="btn-secondary">Leer investigación científica</a>
+      <div class="glacier-types-grid">
+        <article class="type-card">
+          <figure><img src="img/glaciar_rocoso.jpg" alt="Glaciar rocoso en el norte de Chile" /><figcaption>Glaciar rocoso en el norte de Chile. El hielo está oculto bajo las rocas. Fuente: DGA / IPG 2022.</figcaption></figure>
+          <p class="eyebrow">Glaciar rocoso</p>
+          <h3>El hielo invisible del norte</h3>
+          <p>En las regiones de Arica, Tarapacá y Antofagasta, casi todos los glaciares son rocosos: masas de hielo cubiertas de detritos que actúan como un "termo" natural. Son invisibles para el turista, pero son la principal reserva hídrica de los valles del norte desértico. Si se derriten, el agua no puede recuperarse.</p>
+        </article>
+
+        <article class="type-card">
+          <figure><img src="img/glaciar_paloma.jpg" alt="Glaciar La Paloma al atardecer" /><figcaption>Glaciar La Paloma, zona central de Chile. Un glaciar colgante que desciende entre paredes rocosas de la cordillera. Fuente: DGA / IPG 2022.</figcaption></figure>
+          <p class="eyebrow">Glaciar de montaña - Glaciar La Paloma</p>
+          <h3>El hielo que alimenta los ríos del centro</h3>
+          <p>En la zona central de Chile -Valparaíso, Metropolitana, O'Higgins- los glaciares de montaña y los glaciares colgantes como La Paloma alimentan directamente los ríos que abastecen a la mayor parte de la población del país. Su retroceso ya está generando escasez hídrica en verano, la temporada cuando más se necesita el agua.</p>
+        </article>
+
+        <article class="type-card">
+          <figure><img src="img/glaciarete_ohiggins.webp" alt="Glaciarete en el Cerro Brujo" /><figcaption>Glaciarete en el Cerro Brujo, Valle del Río San Andrés, Cuenca del Tinguiririca - Región de O'Higgins. Fuente: DGA / IPG 2022.</figcaption></figure>
+          <p class="eyebrow">Glaciarete - Cerro Brujo, Cuenca del Tinguiririca, O'Higgins</p>
+          <h3>Los más pequeños y los más frágiles</h3>
+          <p>Los glaciaretes son masas de hielo menores a 0,5 km². Son los más sensibles a los cambios de temperatura: con apenas un grado de más, pueden desaparecer en décadas. En la zona central y sur de Chile son los primeros en verse afectados por el calentamiento global, y los que más difícilmente se recuperan.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ===================== ESCENA 5: MAPA ===================== -->
   <section id="glaciares" class="scene scene-5">
     <div class="scene-content fade-in-section">
       <div class="section-header">
         <p class="eyebrow">Exploración interactiva</p>
-        <h2>¿Quieres conocer los<br/>glaciares que aún sobreviven?</h2>
+        <h2>Los glaciares<br>que conozco</h2>
       </div>
+
+      <p class="section-lead">Desde el norte árido hasta la Patagonia austral, Chile alberga glaciares de todos los tipos y tamaños. Estos son algunos de los que he visto cambiar a lo largo de mi vida.</p>
 
       <div class="shoan-intro-map">
         <img src="img/shoan-preocupado.png" alt="Shoan invitando" class="shoan-small" />
         <div class="speech-bubble bubble-inline">
-          <p>Toca cada glaciar en el mapa para conocer su historia, su tamaño y cuánto ha retrocedido.</p>
+          <p>Toca cada glaciar en el mapa para conocer su historia, ubicación y retroceso. El mapa conserva la exploración interactiva del viaje original.</p>
         </div>
       </div>
 
-      <!-- Mapa SVG interactivo de Chile con glaciares -->
       <div class="map-wrapper">
-
-        <!-- COLUMNA IZQUIERDA: mapa de Chile -->
         <div class="map-container">
           <svg id="chile-map" viewBox="0 0 300 700" xmlns="http://www.w3.org/2000/svg">
             <path class="chile-shape" d="M160,20 L180,30 L195,60 L200,100 L195,140 L185,180 L175,220 L170,260 L165,300 L160,340 L155,380 L148,420 L140,460 L130,500 L120,540 L108,570 L95,590 L80,610 L65,630 L55,650 L50,670 L55,680 L70,670 L85,650 L100,625 L115,600 L125,570 L135,540 L145,500 L155,460 L163,420 L170,380 L175,340 L180,300 L185,260 L190,220 L195,180 L200,140 L205,100 L205,60 L195,30 L175,15 Z" />
-            <circle class="glacier-dot" cx="85" cy="590" r="10" data-glacier="grey" />
-            <text class="glacier-label" x="100" y="594">Grey</text>
-            <circle class="glacier-dot" cx="90" cy="613" r="10" data-glacier="tyndall" />
-            <text class="glacier-label" x="105" y="617">Tyndall</text>
-            <circle class="glacier-dot" cx="105" cy="555" r="10" data-glacier="ohiggins" />
-            <text class="glacier-label" x="120" y="559">O'Higgins</text>
-            <circle class="glacier-dot" cx="125" cy="490" r="10" data-glacier="sanrafael" />
-            <text class="glacier-label" x="140" y="494">San Rafael</text>
-            <circle class="glacier-dot" cx="130" cy="468" r="10" data-glacier="exploradores" />
-            <text class="glacier-label" x="145" y="472">Exploradores</text>
-            <circle class="glacier-dot" cx="170" cy="120" r="10" data-glacier="tapado" />
-            <text class="glacier-label" x="145" y="115">El Tapado</text>
-            <circle class="glacier-dot" cx="175" cy="200" r="10" data-glacier="olivares" />
-            <text class="glacier-label" x="150" y="195">Olivares</text>
+            <circle class="glacier-dot" cx="85" cy="590" r="10" data-glacier="grey" /><text class="glacier-label" x="100" y="594">Grey</text>
+            <circle class="glacier-dot" cx="90" cy="613" r="10" data-glacier="tyndall" /><text class="glacier-label" x="105" y="617">Tyndall</text>
+            <circle class="glacier-dot" cx="105" cy="555" r="10" data-glacier="ohiggins" /><text class="glacier-label" x="120" y="559">O'Higgins</text>
+            <circle class="glacier-dot" cx="125" cy="490" r="10" data-glacier="sanrafael" /><text class="glacier-label" x="140" y="494">San Rafael</text>
+            <circle class="glacier-dot" cx="130" cy="468" r="10" data-glacier="exploradores" /><text class="glacier-label" x="145" y="472">Exploradores</text>
+            <circle class="glacier-dot" cx="170" cy="120" r="10" data-glacier="tapado" /><text class="glacier-label" x="145" y="115">El Tapado</text>
+            <circle class="glacier-dot" cx="175" cy="200" r="10" data-glacier="olivares" /><text class="glacier-label" x="150" y="195">Olivares</text>
           </svg>
         </div>
 
-        <!-- COLUMNA DERECHA: panel de información (siempre visible) -->
         <div class="map-right-col">
-          <!-- Estado vacío -->
           <div class="glacier-panel-empty" id="glacier-panel-empty">
-            <div class="empty-icon">🗺️</div>
-            <p>Toca un punto en el mapa<br/>para explorar ese glaciar</p>
+            <div class="empty-icon">⌖</div>
+            <p>Toca un punto en el mapa<br>para explorar ese glaciar</p>
           </div>
 
-          <!-- Panel con datos -->
           <div class="glacier-panel" id="glacier-panel">
-            <button class="panel-close" id="panel-close">✕</button>
-            <div class="panel-img-wrap">
-              <div class="panel-img-placeholder" id="panel-img">🧊</div>
-            </div>
+            <button class="panel-close" id="panel-close" aria-label="Cerrar panel">×</button>
+            <div class="panel-img-wrap"><div class="panel-img-placeholder" id="panel-img">❄</div></div>
             <div class="panel-info">
               <h3 id="panel-name">Nombre del glaciar</h3>
               <div class="panel-stats">
-                <div class="panel-stat">
-                  <span class="panel-stat-label">Ubicación</span>
-                  <span class="panel-stat-value" id="panel-location">–</span>
-                </div>
-                <div class="panel-stat">
-                  <span class="panel-stat-label">Superficie actual</span>
-                  <span class="panel-stat-value" id="panel-area">–</span>
-                </div>
-                <div class="panel-stat">
-                  <span class="panel-stat-label">Retroceso estimado</span>
-                  <span class="panel-stat-value" id="panel-retreat">–</span>
-                </div>
-                <div class="panel-stat">
-                  <span class="panel-stat-label">Período registrado</span>
-                  <span class="panel-stat-value" id="panel-period">–</span>
-                </div>
+                <div class="panel-stat"><span class="panel-stat-label">Ubicación</span><span class="panel-stat-value" id="panel-location">-</span></div>
+                <div class="panel-stat"><span class="panel-stat-label">Superficie / altura</span><span class="panel-stat-value" id="panel-area">-</span></div>
+                <div class="panel-stat"><span class="panel-stat-label">Retroceso estimado</span><span class="panel-stat-value" id="panel-retreat">-</span></div>
+                <div class="panel-stat"><span class="panel-stat-label">Período registrado</span><span class="panel-stat-value" id="panel-period">-</span></div>
               </div>
               <p class="panel-desc" id="panel-desc">Descripción del glaciar.</p>
             </div>
           </div>
-        </div><!-- fin map-right-col -->
+        </div>
+      </div>
 
-      </div><!-- fin map-wrapper -->
+      <div class="glacier-card-grid">
+        <article class="mini-glacier-card"><span>Coquimbo</span><h3>Glaciar El Tapado</h3><p>El glaciar más estudiado del norte chico. Ubicado a 5.550 msnm, es una de las principales reservas hídricas de la cuenca del Elqui. Ha perdido más de un tercio de su superficie desde 1955.</p></article>
+        <article class="mini-glacier-card"><span>Región Metropolitana</span><h3>Glaciar Olivares</h3><p>Complejo de glaciares en la cuenca del río Olivares, afluente del Mapocho. Sus aguas son esenciales para el abastecimiento de Santiago. Su retroceso ha acelerado desde los años 2000.</p></article>
+        <article class="mini-glacier-card"><span>Aysén</span><h3>Glaciar Exploradores</h3><p>Lengua glaciar que desciende del Campo de Hielo Norte hacia el fiordo homónimo. Es uno de los glaciares más accesibles de la Patagonia y un indicador clave del estado del campo de hielo.</p></article>
+        <article class="mini-glacier-card"><span>Aysén</span><h3>Glaciar O'Higgins</h3><p>El mayor glaciar de los Campos de Hielo Sur en territorio chileno. Ha retrocedido más de 14 kilómetros desde principios del siglo XX, dejando atrás un lago glaciar de aguas azul turquesa.</p></article>
+        <article class="mini-glacier-card"><span>Aysén</span><h3>Glaciar San Rafael</h3><p>Una de las maravillas naturales de Chile: una lengua de hielo que llega hasta el nivel del mar y produce icebergs. Es el glaciar de agua dulce de menor altitud del mundo en el hemisferio norte.</p></article>
+        <article class="mini-glacier-card"><span>Magallanes</span><h3>Glaciar Tyndall</h3><p>Parte del Campo de Hielo Sur, en el Parque Nacional Torres del Paine. Su retroceso ha creado el lago Geike. Es uno de los glaciares más visitados de la Patagonia y uno de los que más rápido retrocede.</p></article>
+        <article class="mini-glacier-card"><span>Magallanes</span><h3>Glaciar Grey</h3><p>Imponente glaciar del Campo de Hielo Sur, accesible desde el Parque Nacional Torres del Paine. Sus icebergs flotan en el lago Grey. Ha perdido más de 4 km² de superficie en las últimas décadas.</p></article>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== FOOTER / CONTACTO ===================== -->
-  <footer id="contacto" class="footer">
-    <div class="footer-content">
-      <img src="img/logo.png" alt="Logo" class="footer-logo" />
-      <p class="footer-tagline">Una historia contada por el hielo, para quienes aún pueden escuchar.</p>
-      <div class="footer-links">
-        <a href="mailto:contacto@vocesdelhielo.cl">contacto@vocesdelhielo.cl</a>
-        <a href="https://glaciologia.cl" target="_blank">glaciologia.cl</a>
-        <a href="https://www.glaciares.cl" target="_blank">glaciares.cl</a>
+  <section id="comunidades" class="scene scene-6">
+    <div class="scene-overlay scene-overlay-earth"></div>
+    <div class="scene-content fade-in-section">
+      <div class="section-header">
+        <p class="eyebrow">Las personas detrás del deshielo</p>
+        <h2>El agua que se pierde<br>también tiene voces</h2>
       </div>
-      <p class="footer-credits">Proyecto universitario · Datos: DGA, CECS, CONAF, Inventario de Glaciares de Chile 2022</p>
+
+      <p class="section-lead">El agua que se pierde con el hielo no es solo un número en un informe. Es el agua que riega los campos de alguien, la que apaga la sed de una comunidad, la que sostiene un modo de vida que lleva siglos en pie.</p>
+
+      <div class="shoan-intro-chart">
+        <img src="img/shoan-triste.png" alt="Shoan observando el río" class="shoan-small" />
+        <div class="speech-bubble bubble-inline">
+          <p>Yo veo el río bajar con menos fuerza cada verano. Lo que antes eran torrentes, hoy son hilos de agua. Y los humanos que viven río abajo también lo notan.</p>
+        </div>
+      </div>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <span class="location">Valle del Elqui - Región de Coquimbo</span>
+          <h3>Los agricultores que ya no pueden sembrar</h3>
+          <p>La región de Coquimbo lleva más de quince años bajo decretos de escasez hídrica. En el Valle del Elqui, agricultores que cultivaban uva, chirimoyas y hortalizas durante generaciones han tenido que reducir su superficie sembrada a la mitad o directamente abandonar sus campos. Según datos de la DGA, los embalses de la región operaron en 2024 al 16% de su capacidad. "Va a haber zonas en que disminuirá tanto la oferta hídrica que la gente tendrá que dejar el lugar donde vive", advirtió Carlos Olavarría, director ejecutivo del CEAZA.</p>
+          <p>En el río Choapa, el caudal promediaba apenas 2.400 litros por segundo en 2025 - suficiente para cubrir solo el 20% de los derechos de agua otorgados en la cuenca, que coordina 92 comunidades de aguas. El fenómeno tiene nombre: migración climática. No es gente que se va por pobreza, sino porque la tierra ya no resiste.</p>
+        </article>
+
+        <article class="community-card">
+          <span class="location">Norte de Chile - Pueblo Lickanantay</span>
+          <h3>El pueblo que sabía vivir con la escasez</h3>
+          <p>Para el pueblo Lickanantay -los atacameños- el agua nunca fue abundante. Aprendieron durante siglos a convivir con la escasez del desierto, a construir sistemas de riego ancestrales y a cultivar en los oasis del norte. En la lengua kunza, el agua se llama <em>puri</em> y es el centro de su vida comunitaria.</p>
+          <p>Hoy, esa gestión milenaria enfrenta amenazas que van más allá del cambio climático. La extracción de litio en el Salar de Atacama, la minería del cobre y el turismo compiten por el mismo recurso. En junio de 2026, la comunidad de Toconao llevó a tribunales un proyecto minero que amenazaba las fuentes de agua del Salar de Tara, donde nacen los ríos que riegan sus cultivos de papa, porotos y maíz. Para ellos, perder el agua no es solo una crisis económica: es perder la posibilidad de seguir siendo quienes son.</p>
+          <p>Frente a eso, algunos han respondido con ingenio: adoptando la técnica himalaya de las <strong>estupas de hielo</strong> - glaciares artificiales piramidales que se forman durante el invierno y liberan agua de forma controlada en verano. Una respuesta ancestral al problema más urgente del siglo.</p>
+        </article>
+
+        <article class="community-card">
+          <span class="location">Patagonia - Comunidades pesqueras</span>
+          <h3>El mar que ya no es el mismo</h3>
+          <p>El deshielo de los glaciares patagónicos no solo afecta la tierra. El agua dulce que liberan los campos de hielo llega a los fiordos y al canal Beagle, alterando la salinidad del mar. Esto afecta directamente a las especies marinas que dependen de un equilibrio preciso entre agua dulce y salada: mitílidos, centollas, merluza austral. Las comunidades que viven de la pesca artesanal en las costas de Magallanes y Aysén ya registran cambios en los caladeros y en las temporadas de pesca. Un cambio que no genera titulares, pero que transforma la vida de miles de familias.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="scene scene-7">
+    <div class="glacier-bg-melted"><img src="img/glaciar2.png" alt="Glaciar patagónico en retroceso" class="bg-img" /></div>
+    <div class="scene-overlay scene-overlay-dark"></div>
+    <div class="scene-content scene-content-centered fade-in-section">
+      <div class="shoan-container shoan-center">
+        <img src="img/shoan-triste.png" alt="Shoan triste" class="shoan-img shoan-big" />
+        <div class="speech-bubble bubble-center">
+          <p>Si nada cambia, mis nietos no conocerán este glaciar. Solo verán las fotos que dejamos nosotros.</p>
+          <p><strong>¿Me ayudas a proteger mi hogar antes de que sea demasiado tarde?</strong></p>
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <h2>Chile todavía no tiene una ley de protección glaciar</h2>
+        <p>Los glaciares de Chile son una de las reservas de agua dulce más importantes del planeta. Y están desapareciendo. En 20 años se han presentado 6 proyectos de ley que no terminaron su tramitación.</p>
+        <p>La ciencia está clara. La urgencia también. Lo que falta es voluntad política y ciudadana.</p>
+        <ul class="action-list">
+          <li>Infórmate con el <a href="https://www.cr2.cl" target="_blank" rel="noopener">Centro CR2</a> y la <a href="https://www.dga.cl" target="_blank" rel="noopener">DGA</a></li>
+          <li>Apoya la <strong>Ley de Glaciares</strong> - exige su aprobación</li>
+          <li>Comparte esta historia</li>
+        </ul>
+        <div class="cta-links">
+          <a href="https://www.cr2.cl" target="_blank" rel="noopener" class="btn-primary">Conoce más en CR2</a>
+          <a href="https://www.glaciareschilenos.org/" target="_blank" rel="noopener" class="btn-secondary">Ley de Glaciares</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="img/logo.png" alt="Logo de Shoan" class="footer-logo" />
+      <p class="footer-tagline">SHOAN - El deshielo de los glaciares en Chile</p>
+      <p>Clarita Díaz · Periodismo de Datos 2026 · Pontificia Universidad Católica de Chile</p>
+      <div class="footer-links">
+        <a href="https://dga.mop.gob.cl" target="_blank" rel="noopener">DGA - IPG 2022</a>
+        <a href="https://www.cr2.cl" target="_blank" rel="noopener">CR2</a>
+        <a href="https://glaciologia.cl" target="_blank" rel="noopener">glaciologia.cl</a>
+      </div>
+      <p class="footer-credits">Fuentes: DGA - IPG 2022 · CR2 · CEAZA · IPCC 2021 · Mongabay · País Circular · El Mostrador</p>
     </div>
   </footer>
 
