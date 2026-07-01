@@ -65,15 +65,22 @@
         </div>
       </div>
 
-      <div class="story-panel">
-        <div class="section-header">
-          <p class="eyebrow">La historia</p>
-          <h2>SHOAN</h2>
-        </div>
-        <p>Soy un huemul y vivo en la Patagonia. Durante toda mi vida, los glaciares de la Cordillera Darwin han sido parte de mi hogar. Ellos alimentan los ríos donde bebo, mantienen vivos los bosques que me protegen y dan vida a muchas otras especies que habitan este lugar.</p>
-        <p>Pero he empezado a notar que algo está cambiando.</p>
-        <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin, uno de los más australes del planeta y una de las mayores reservas de agua dulce de Chile, se está derritiendo cada vez más rápido. El aumento de las temperaturas y la llegada de vientos más cálidos está acelerando el deshielo. Cada año se pierden, en promedio, 18 centímetros de hielo.</p>
-      </div>
+      <div class="story-panel story-panel-media">
+  <div class="story-text">
+    <div class="section-header">
+      <p class="eyebrow">La historia</p>
+      <h2>SHOAN TE LO CUENTA</h2>
+    </div>
+    <p>Soy un huemul y vivo en la Patagonia. Durante toda mi vida, los glaciares de la Cordillera Darwin han sido parte de mi hogar. Ellos alimentan los ríos donde bebo, mantienen vivos los bosques que me protegen y dan vida a muchas otras especies que habitan este lugar.</p>
+    <p>Pero he empezado a notar que algo está cambiando.</p>
+    <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin, uno de los más australes del planeta y una de las mayores reservas de agua dulce de Chile, se está derritiendo cada vez más rápido. El aumento de las temperaturas y la llegada de vientos más cálidos está acelerando el deshielo. Cada año se pierden, en promedio, 18 centímetros de hielo.</p>
+  </div>
+
+  <figure class="story-image">
+    <img src="img/glaciar1.png" alt="Glaciar patagónico, hogar de Shoan." />
+    <figcaption>Los glaciares alimentan ríos, bosques y ecosistemas completos.</figcaption>
+  </figure>
+</div>
 
       <div class="stats-grid">
         <div class="stat-card"><span class="stat-number" data-target="18">0</span><span class="stat-unit">cm</span><p class="stat-label">de hielo se pierden cada año en la Cordillera Darwin - Fuente: CR2 / DGA</p></div>
@@ -109,15 +116,26 @@
         <p><strong>¿Por qué dos gráficos?</strong> El gráfico al 100% permite comparar regiones muy distintas, pero oculta cuántos glaciares tiene cada una. Para entender por qué Ñuble, Biobío y La Araucanía se ven "normales" en el primero, hay que mirar el segundo.</p>
       </div>
 
-      <div class="featured-chart">
-  <p class="eyebrow">Gráfico 1 - Composición proporcional</p>
-  <h3>¿Qué tipo de glaciar predomina en cada región?</h3>
-  <p>Cada barra representa el 100% de los glaciares de una región, dividida por tipo. Las regiones están ordenadas de norte a sur.</p>
+     <div class="visual-grid visual-grid-two">
+  <article class="visual-card">
+    <p class="eyebrow">Gráfico 1 - Composición proporcional</p>
+    <h3>¿Qué tipo de glaciar predomina en cada región?</h3>
+    <p>Cada barra representa el 100% de los glaciares de una región, dividida por tipo. Las regiones están ordenadas de norte a sur.</p>
+    <figure>
+      <img src="img/visualizacion.webp" alt="Gráfico de barras apiladas al 100% que muestra la composición porcentual de tipos de glaciares por región en Chile." />
+      <figcaption>Composición porcentual por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+    </figure>
+  </article>
 
-  <figure>
-    <img src="img/visualizacion.webp" alt="Gráfico de barras apiladas al 100% que muestra la composición porcentual de tipos de glaciares por región en Chile." />
-    <figcaption>Composición porcentual por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
-  </figure>
+  <article class="visual-card">
+    <p class="eyebrow">Gráfico 2 - Distribución absoluta</p>
+    <h3>¿Cuántos glaciares tiene cada región?</h3>
+    <p>El mismo desglose por tipo, pero ahora el eje Y muestra el número real de glaciares. Aysén y Magallanes concentran la inmensa mayoría. Ñuble y Biobío casi no se ven.</p>
+    <figure>
+      <img src="img/glaciares_absolutos.svg" alt="Gráfico de barras apiladas con valores absolutos de glaciares por región en Chile." />
+      <figcaption>Distribución absoluta por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+    </figure>
+  </article>
 </div>
 
       <div class="visual-grid">
@@ -243,6 +261,75 @@
     </div>
   </section>
 
+<section id="antes-despues" class="scene scene-compare">
+  <div class="scene-content fade-in-section">
+    <div class="section-header">
+      <p class="eyebrow">Antes y después</p>
+      <h2>El retroceso visto<br>desde el tiempo</h2>
+    </div>
+
+    <p class="section-lead">Estas comparaciones mostrarán cómo han cambiado los glaciares entre una imagen histórica y una imagen reciente. Por ahora quedan preparadas para cuando agregues las capturas de Google Earth.</p>
+
+    <div class="compare-grid">
+      <article class="compare-card">
+        <h3>Glaciar El Tapado</h3>
+        <div class="compare-pair">
+          <figure><img src="img/tapado-1940.png" alt="Glaciar El Tapado en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/tapado-2023.png" alt="Glaciar El Tapado en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar Olivares</h3>
+        <div class="compare-pair">
+          <figure><img src="img/olivares-1940.png" alt="Glaciar Olivares en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/olivares-2023.png" alt="Glaciar Olivares en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar Exploradores</h3>
+        <div class="compare-pair">
+          <figure><img src="img/exploradores-1940.png" alt="Glaciar Exploradores en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/exploradores-2023.png" alt="Glaciar Exploradores en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar O'Higgins</h3>
+        <div class="compare-pair">
+          <figure><img src="img/ohiggins-1940.png" alt="Glaciar O'Higgins en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/ohiggins-2023.png" alt="Glaciar O'Higgins en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar San Rafael</h3>
+        <div class="compare-pair">
+          <figure><img src="img/sanrafael-1940.png" alt="Glaciar San Rafael en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/sanrafael-2023.png" alt="Glaciar San Rafael en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar Tyndall</h3>
+        <div class="compare-pair">
+          <figure><img src="img/tyndall-1940.png" alt="Glaciar Tyndall en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/tyndall-2023.png" alt="Glaciar Tyndall en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="compare-card">
+        <h3>Glaciar Grey</h3>
+        <div class="compare-pair">
+          <figure><img src="img/grey-1940.png" alt="Glaciar Grey en 1940"><figcaption>1940</figcaption></figure>
+          <figure><img src="img/grey-2023.png" alt="Glaciar Grey en 2023"><figcaption>2023</figcaption></figure>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+  
   <section id="comunidades" class="scene scene-6">
     <div class="scene-overlay scene-overlay-earth"></div>
     <div class="scene-content fade-in-section">
