@@ -59,9 +59,8 @@
       <div class="s2-shoan-row">
         <img src="img/shoan-preocupado.png" alt="Shoan preocupado" class="shoan-img shoan-worried s2-shoan-img" />
         <div class="speech-bubble s2-bubble">
-          <p>Pero he empezado a notar que algo está cambiando.</p>
-          <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin se está derritiendo cada vez más rápido.</p>
-          <p>Déjame mostrarte lo que está pasando...</p>
+          <p>Antes, mi vida en la patagonia era de película. Mis únicas preocupaciones eran escapar de algún puma y encontrar mis plantas favoritas para comer. Pero últimamente, he empezado a notar que algo está cambiando...</p>
+          <p>Déjame contarte lo que está pasando...</p>
         </div>
       </div>
 
@@ -72,8 +71,8 @@
       <h2>SHOAN TE LO CUENTA</h2>
     </div>
     <p>Soy un huemul y vivo en la Patagonia. Durante toda mi vida, los glaciares de la Cordillera Darwin han sido parte de mi hogar. Ellos alimentan los ríos donde bebo, mantienen vivos los bosques que me protegen y dan vida a muchas otras especies que habitan este lugar.</p>
-    <p>Pero he empezado a notar que algo está cambiando.</p>
-    <p>Los científicos descubrieron que el campo de hielo de la Cordillera Darwin, uno de los más australes del planeta y una de las mayores reservas de agua dulce de Chile, se está derritiendo cada vez más rápido. El aumento de las temperaturas y la llegada de vientos más cálidos está acelerando el deshielo. Cada año se pierden, en promedio, 18 centímetros de hielo.</p>
+    <p>Hace un tiempo comencé a notar que los inviernos ya no se sentían igual. Los científicos confirmaron que no era solo una impresión: el campo de hielo de la Cordillera Darwin, uno de los más australes del planeta y una de las mayores reservas de agua dulce de Chile, se está derritiendo cada vez más rápido.</p>
+    <p>El aumento de las temperaturas y la llegada de vientos más cálidos están acelerando el deshielo. Cada año se pierden, en promedio, 18 centímetros de hielo, un cambio que afecta a todo el ecosistema del que dependo para vivir.</p>
   </div>
 
   <figure class="story-image">
@@ -138,19 +137,7 @@
   </article>
 </div>
 
-      <div class="visual-grid">
-
-        <article class="visual-card">
-          <p class="eyebrow">Gráfico 2 - Distribución absoluta</p>
-          <h3>¿Cuántos glaciares tiene cada región?</h3>
-          <p>El mismo desglose por tipo, pero ahora el eje Y muestra el número real de glaciares. Aysén y Magallanes concentran la inmensa mayoría. Ñuble y Biobío casi no se ven.</p>
-          <figure>
-            <img src="img/glaciares_absolutos.svg" alt="Gráfico de barras apiladas con valores absolutos de glaciares por región en Chile." />
-            <figcaption>Distribución absoluta por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
-          </figure>
-        </article>
-      </div>
-    </div>
+    
   </section>
 
   <section id="tipos" class="scene scene-4">
@@ -187,7 +174,7 @@
         </article>
 
         <article class="type-card">
-          <figure><img src="img/glaciarete_ohiggins.webp" alt="Glaciarete en el Cerro Brujo" /><figcaption>Glaciarete en el Cerro Brujo, Valle del Río San Andrés, Cuenca del Tinguiririca - Región de O'Higgins. Fuente: DGA / IPG 2022.</figcaption></figure>
+          <figure><img src="img/glaciarete_ohiggins.jpg" alt="Glaciarete en el Cerro Brujo" /><figcaption>Glaciarete en el Cerro Brujo, Valle del Río San Andrés, Cuenca del Tinguiririca - Región de O'Higgins. Fuente: DGA / IPG 2022.</figcaption></figure>
           <p class="eyebrow">Glaciarete - Cerro Brujo, Cuenca del Tinguiririca, O'Higgins</p>
           <h3>Los más pequeños y los más frágiles</h3>
           <p>Los glaciaretes son masas de hielo menores a 0,5 km². Son los más sensibles a los cambios de temperatura: con apenas un grado de más, pueden desaparecer en décadas. En la zona central y sur de Chile son los primeros en verse afectados por el calentamiento global, y los que más difícilmente se recuperan.</p>
@@ -268,65 +255,117 @@
       <h2>El retroceso visto<br>desde el tiempo</h2>
     </div>
 
-    <p class="section-lead">Estas comparaciones mostrarán cómo han cambiado los glaciares entre una imagen histórica y una imagen reciente. Por ahora quedan preparadas para cuando agregues las capturas de Google Earth.</p>
+    <p class="section-lead">Estas comparaciones mostrarán cómo han cambiado los glaciares entre una imagen histórica y una imagen reciente. Usa las flechas para recorrer cada glaciar.</p>
 
-    <div class="compare-grid">
-      <article class="compare-card">
-        <h3>Glaciar El Tapado</h3>
-        <div class="compare-pair">
-          <figure><img src="img/tapado-1940.png" alt="Glaciar El Tapado en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/tapado-2023.png" alt="Glaciar El Tapado en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+    <div class="compare-carousel">
+      <button class="compare-arrow compare-prev" type="button" aria-label="Ver glaciar anterior">‹</button>
 
-      <article class="compare-card">
-        <h3>Glaciar Olivares</h3>
-        <div class="compare-pair">
-          <figure><img src="img/olivares-1940.png" alt="Glaciar Olivares en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/olivares-2023.png" alt="Glaciar Olivares en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+      <div class="compare-track">
 
-      <article class="compare-card">
-        <h3>Glaciar Exploradores</h3>
-        <div class="compare-pair">
-          <figure><img src="img/exploradores-1940.png" alt="Glaciar Exploradores en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/exploradores-2023.png" alt="Glaciar Exploradores en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+        <article class="compare-card active">
+          <h3>Glaciar El Tapado</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/tapado-1945.png" alt="Glaciar El Tapado en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/tapado-2023.png" alt="Glaciar El Tapado en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
 
-      <article class="compare-card">
-        <h3>Glaciar O'Higgins</h3>
-        <div class="compare-pair">
-          <figure><img src="img/ohiggins-1940.png" alt="Glaciar O'Higgins en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/ohiggins-2023.png" alt="Glaciar O'Higgins en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+        <article class="compare-card">
+          <h3>Glaciar Olivares</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/olivares-1945.png" alt="Glaciar Olivares en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/olivares-2023.png" alt="Glaciar Olivares en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
 
-      <article class="compare-card">
-        <h3>Glaciar San Rafael</h3>
-        <div class="compare-pair">
-          <figure><img src="img/sanrafael-1940.png" alt="Glaciar San Rafael en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/sanrafael-2023.png" alt="Glaciar San Rafael en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+        <article class="compare-card">
+          <h3>Glaciar Exploradores</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/exploradores-1945.png" alt="Glaciar Exploradores en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/exploradores-2023.png" alt="Glaciar Exploradores en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
 
-      <article class="compare-card">
-        <h3>Glaciar Tyndall</h3>
-        <div class="compare-pair">
-          <figure><img src="img/tyndall-1940.png" alt="Glaciar Tyndall en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/tyndall-2023.png" alt="Glaciar Tyndall en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+        <article class="compare-card">
+          <h3>Glaciar O'Higgins</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/ohiggins-1945.png" alt="Glaciar O'Higgins en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/ohiggins-2023.png" alt="Glaciar O'Higgins en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
 
-      <article class="compare-card">
-        <h3>Glaciar Grey</h3>
-        <div class="compare-pair">
-          <figure><img src="img/grey-1940.png" alt="Glaciar Grey en 1940"><figcaption>1940</figcaption></figure>
-          <figure><img src="img/grey-2023.png" alt="Glaciar Grey en 2023"><figcaption>2023</figcaption></figure>
-        </div>
-      </article>
+        <article class="compare-card">
+          <h3>Glaciar San Rafael</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/sanrafael-1945.png" alt="Glaciar San Rafael en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/sanrafael-2023.png" alt="Glaciar San Rafael en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="compare-card">
+          <h3>Glaciar Tyndall</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/tyndall-1945.png" alt="Glaciar Tyndall en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/tyndall-2023.png" alt="Glaciar Tyndall en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="compare-card">
+          <h3>Glaciar Grey</h3>
+          <div class="compare-pair">
+            <figure>
+              <img src="img/grey-1945.png" alt="Glaciar Grey en 1945">
+              <figcaption>1945</figcaption>
+            </figure>
+            <figure>
+              <img src="img/grey-2023.png" alt="Glaciar Grey en 2023">
+              <figcaption>2023</figcaption>
+            </figure>
+          </div>
+        </article>
+
+      </div>
+
+      <button class="compare-arrow compare-next" type="button" aria-label="Ver glaciar siguiente">›</button>
     </div>
+
+    <div class="compare-dots" aria-label="Selector de glaciares"></div>
   </div>
 </section>
   
