@@ -477,3 +477,23 @@
   margin-top:.8rem;
   line-height:1.55;
 }
+
+.audio-toggle{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  z-index:300;
+  width:46px;
+  height:46px;
+  border:1px solid rgba(168,216,234,.35);
+  border-radius:50%;
+  background:rgba(5,13,20,.78);
+  color:white;
+  font-size:1.1rem;
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+}
+
+.audio-toggle.is-playing{
+  background:var(--agua);
+}
