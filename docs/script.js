@@ -301,3 +301,23 @@ function showCompare(index){
     dot.classList.toggle("active",i===compareIndex);
   });
 }
+
+const bgAudio=document.querySelector("#bg-audio");
+const audioToggle=document.querySelector("#audio-toggle");
+
+audioToggle?.addEventListener("click",async()=>{
+  if(!bgAudio)return;
+
+  if(bgAudio.paused){
+    bgAudio.volume=0.35;
+    await bgAudio.play();
+    audioToggle.classList.add("is-playing");
+    audioToggle.textContent="❚❚";
+    audioToggle.setAttribute("aria-label","Pausar sonido");
+  }else{
+    bgAudio.pause();
+    audioToggle.classList.remove("is-playing");
+    audioToggle.textContent="♫";
+    audioToggle.setAttribute("aria-label","Activar sonido");
+  }
+});
