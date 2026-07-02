@@ -1,6 +1,6 @@
 # Análisis de las visualizaciones y su relación con la historia
 
-La propuesta visual de **Voces del hielo** fue concebida para que las visualizaciones no funcionen únicamente como elementos informativos, sino como parte fundamental de la narrativa. Cada recurso gráfico acompaña el recorrido emocional de la historia y ayuda al usuario a comprender la evolución del deshielo de los glaciares en Chile desde una perspectiva cercana y comprensible.
+La propuesta visual de **Mi Hogar Se Está Derritiendo** fue concebida para que las visualizaciones no funcionen únicamente como elementos informativos, sino como parte fundamental de la narrativa. Cada recurso gráfico acompaña el recorrido emocional de la historia y ayuda al usuario a comprender la evolución del deshielo de los glaciares en Chile desde una perspectiva cercana y comprensible.
 
 ## Dimensiones que buscamos comunicar
 
@@ -14,14 +14,14 @@ Con estas visualizaciones buscamos que el usuario pueda responder la pregunta:
 
 ---
 
-### 2. La dimensión temporal (falta agregarlo en esta entrega)
+### 2. La dimensión temporal 
 
 La historia muestra que el deshielo no es un fenómeno reciente, sino un proceso que se ha acelerado durante las últimas décadas.
 
 Para comunicar esta evolución se incorporan:
 
 - Slider interactivo "Antes / Después" de glaciares.
-- Línea de tiempo desde 1950 hasta la actualidad.
+- Línea de tiempo desde principios de los 2000 hasta la actualidad.
 - Comparaciones visuales entre fotografías históricas y actuales.
 
 Estas visualizaciones permiten comprender el cambio de forma inmediata, mostrando cómo paisajes que tardaron miles de años en formarse han retrocedido significativamente en pocas décadas.
@@ -35,7 +35,7 @@ El proyecto traduce información científica compleja en visualizaciones fácile
 Para ello se utilizan:
 
 - Gráficos sobre pérdida de masa glaciar por región.
-- Infografías que explican la relación entre deshielo, disponibilidad de agua y crisis hídrica. (falta agregar eso)
+- Gráficos que exploican la diversidad de glaciares.
 - Cajas con datos destacados.
 - Cifras resumidas mediante etiquetas visuales.
 
@@ -43,13 +43,12 @@ El objetivo es reducir la complejidad técnica sin perder rigurosidad, permitien
 
 ---
 
-### 4. La dimensión humana (falta agregar eso a la webstory)
+### 4. La dimensión humana 
 
 Las visualizaciones no se centran únicamente en los glaciares, sino también en las personas que dependen de ellos.
 
 Por esta razón se incorporan:
 
-- Fotografías documentales de comunidades afectadas.
 - Historias breves de habitantes de distintos territorios.
 - El relato en primera persona de Shoan como hilo conductor.
 
