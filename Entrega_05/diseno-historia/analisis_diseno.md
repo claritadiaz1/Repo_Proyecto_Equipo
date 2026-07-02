@@ -22,7 +22,7 @@ Esta secuencia permite que el usuario comprenda progresivamente el problema, pas
 
 El recorrido está diseñado para que el usuario avance mediante un desplazamiento vertical continuo, sin necesidad de navegar entre múltiples páginas o utilizar menús complejos.
 
-Cada sección presenta un objetivo distinto y combina narración, visualizaciones e interacción de manera progresiva. El usuario comienza inmerso en un paisaje glaciar acompañado por Shoan, quien actúa como narrador durante todo el recorrido. Posteriormente descubre información territorial mediante mapas interactivos, comprende la evolución histórica del fenómeno gracias a líneas de tiempo, analiza datos mediante gráficos e infografías y, finalmente, conoce historias humanas que conectan el problema ambiental con la vida cotidiana.
+Cada sección presenta un objetivo distinto y combina narración, visualizaciones e interacción de manera progresiva. El usuario comienza inmerso en un paisaje glaciar acompañado por Shoan, quien actúa como narrador durante todo el recorrido. Posteriormente descubre información territorial mediante mapas interactivos, comprende la evolución histórica del fenómeno gracias a líneas de tiempo, analiza datos mediante gráficos y, finalmente, conoce historias humanas que conectan el problema ambiental con la vida cotidiana.
 La experiencia culmina con una sección de participación ciudadana que entrega recursos para continuar informándose y colaborar con la protección de los glaciares. El diseño evita sobrecargar la interfaz con múltiples elementos interactivos simultáneos, privilegiando una lectura pausada y guiada donde cada recurso aparece únicamente cuando aporta información relevante al relato.
 
 ---
