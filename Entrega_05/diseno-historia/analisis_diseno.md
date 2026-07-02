@@ -2,16 +2,17 @@
 
 ### Estructura narrativa
 
-La webstory **Voces del hielo** está organizada mediante una estructura de **scroll vertical continuo**, siguiendo un recorrido lineal que acompaña el arco narrativo de la historia. Esta decisión responde tanto a la naturaleza del relato como al comportamiento del usuario objetivo, quien prefiere una navegación simple, intuitiva y sin interrupciones.
+La webstory **Mi Hogar Se Está Derritiendo** está organizada mediante una estructura de **scroll vertical continuo**, siguiendo un recorrido lineal que acompaña el arco narrativo de la historia. Esta decisión responde tanto a la naturaleza del relato como al comportamiento del usuario objetivo, quien prefiere una navegación simple, intuitiva y sin interrupciones.
 
 La historia se divide en seis grandes secciones que representan un recorrido temporal y emocional:
 
 1. **Hero** – Presentación del conflicto y del protagonista.
 2. **¿Quién soy?** – Introducción de Shoan y contextualización de los glaciares en Chile.
-3. **El pasado** – Cómo eran los glaciares y qué cambios han experimentado. (falta agregar más info ahí)
-4. **La crisis** – Explicación del proceso de deshielo y sus causas.
-5. **El impacto** – Consecuencias para las comunidades, los ecosistemas y la disponibilidad de agua. (falta en el borrrador)
-6. **¿Qué podemos hacer?** – Acciones concretas, reflexión final y cierre.
+3. **Dos formas de mirar el mismo deshielo** – Los tipos de glaciares que hay en Chile.
+4. **Repertorio de glaciares** – Demostración de algunos glaciares importantes que hay en Chile
+5. **La crisis** - El retroceso visto desde el tiempo.
+6. **El impacto** – Consecuencias para las comunidades, los ecosistemas y la disponibilidad de agua. 
+7. **¿Qué podemos hacer?** – Acciones concretas, reflexión final y cierre.
 
 Esta secuencia permite que el usuario comprenda progresivamente el problema, pasando desde el conocimiento del territorio hasta la comprensión de sus efectos y posibles soluciones.
 
@@ -21,7 +22,7 @@ Esta secuencia permite que el usuario comprenda progresivamente el problema, pas
 
 El recorrido está diseñado para que el usuario avance mediante un desplazamiento vertical continuo, sin necesidad de navegar entre múltiples páginas o utilizar menús complejos.
 
-Cada sección presenta un objetivo distinto y combina narración, visualizaciones e interacción de manera progresiva. El usuario comienza inmerso en un paisaje glaciar acompañado por Shoan, quien actúa como narrador durante todo el recorrido. Posteriormente descubre información territorial mediante mapas interactivos, comprende la evolución histórica del fenómeno gracias a sliders y líneas de tiempo (falta), analiza datos mediante gráficos e infografías y, finalmente, conoce historias humanas que conectan el problema ambiental con la vida cotidiana (falta).
+Cada sección presenta un objetivo distinto y combina narración, visualizaciones e interacción de manera progresiva. El usuario comienza inmerso en un paisaje glaciar acompañado por Shoan, quien actúa como narrador durante todo el recorrido. Posteriormente descubre información territorial mediante mapas interactivos, comprende la evolución histórica del fenómeno gracias a líneas de tiempo, analiza datos mediante gráficos e infografías y, finalmente, conoce historias humanas que conectan el problema ambiental con la vida cotidiana.
 La experiencia culmina con una sección de participación ciudadana que entrega recursos para continuar informándose y colaborar con la protección de los glaciares. El diseño evita sobrecargar la interfaz con múltiples elementos interactivos simultáneos, privilegiando una lectura pausada y guiada donde cada recurso aparece únicamente cuando aporta información relevante al relato.
 
 ---
