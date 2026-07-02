@@ -1,6 +1,6 @@
 # README – Entrega Final Webstory
 
-# Voces del hielo
+# Mi Hogar Se Está Derritiendo
 *La historia del deshielo de los glaciares en Chile contada por su guardián.*
 
 Este proyecto es una webstory interactiva que aborda la crisis del deshielo de los glaciares en Chile mediante una narrativa visual e interactiva. La historia es contada desde la perspectiva de Shoan, un huemul que actúa como narrador y guía a lo largo del recorrido, permitiendo conectar información científica con una experiencia cercana y emocional.
