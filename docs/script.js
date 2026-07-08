@@ -321,3 +321,71 @@ audioToggle?.addEventListener("click",async()=>{
     audioToggle.setAttribute("aria-label","Activar sonido");
   }
 });
+
+// Gráficos incrustados (Vega-Lite) — reemplazan las imágenes estáticas de visualizacion.webp y glaciares_absolutos.svg
+// Datos: IPG 2022 - DGA, agregados por región y tipo de glaciar.
+
+const ICE_COLORS = ['#5fa8d3', '#89c2d9', '#a9d6e5', '#2c7da0', '#014f86'];
+
+fetch('data/glaciares_region_tipo.json')
+  .then((res) => res.json())
+  .then((json) => {
+    const { regionOrder, tipoOrder, data } = json;
+
+    const baseSpec = {
+      $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+      data: { values: data },
+      width: 'container',
+      height: 380,
+      config: {
+        font: 'Inter, sans-serif',
+        axis: { labelFont: 'Inter, sans-serif', titleFont: 'Inter, sans-serif' },
+        legend: { labelFont: 'Inter, sans-serif', titleFont: 'Inter, sans-serif' },
+      },
+      encoding: {
+        x: {
+          field: 'region',
+          type: 'nominal',
+          sort: regionOrder,
+          title: null,
+          axis: { labelAngle: -45 },
+        },
+        y: {
+          field: 'cantidad',
+          type: 'quantitative',
+          stack: 'normalize',
+          title: '% de glaciares',
+          axis: { format: '%' },
+        },
+        color: {
+          field: 'tipo',
+          type: 'nominal',
+          sort: tipoOrder,
+          title: 'Tipo de glaciar',
+          scale: { domain: tipoOrder, range: ICE_COLORS },
+        },
+        tooltip: [
+          { field: 'region', title: 'Región' },
+          { field: 'tipo', title: 'Tipo' },
+          { field: 'cantidad', title: 'Cantidad', type: 'quantitative' },
+        ],
+      },
+      mark: { type: 'bar' },
+    };
+
+    const percentSpec = JSON.parse(JSON.stringify(baseSpec));
+
+    const absoluteSpec = JSON.parse(JSON.stringify(baseSpec));
+    absoluteSpec.encoding.y = {
+      field: 'cantidad',
+      type: 'quantitative',
+      stack: 'zero',
+      title: 'N° de glaciares',
+    };
+
+    vegaEmbed('#chart-percent', percentSpec, { actions: false, renderer: 'svg' });
+    vegaEmbed('#chart-absolute', absoluteSpec, { actions: false, renderer: 'svg' });
+  })
+  .catch((err) => {
+    console.error('No se pudieron cargar los gráficos:', err);
+  });
