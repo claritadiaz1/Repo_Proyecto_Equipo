@@ -1,0 +1,289 @@
+{
+"regionOrder": [
+"Arica y Parinacota",
+"Tarapacá",
+"Antofagasta",
+"Atacama",
+"Coquimbo",
+"Valparaíso",
+"Metropolitana",
+"O'Higgins",
+"Maule",
+"Ñuble",
+"Biobío",
+"La Araucanía",
+"Los Ríos",
+"Los Lagos",
+"Aysén",
+"Magallanes"
+],
+"tipoOrder": [
+"Glaciar de montaña",
+"Glaciar de valle",
+"Glaciar efluente",
+"Glaciar rocoso",
+"Glaciarete"
+],
+"data": [
+{
+"region": "Arica y Parinacota",
+"tipo": "Glaciar de montaña",
+"cantidad": 7
+},
+{
+"region": "Arica y Parinacota",
+"tipo": "Glaciar rocoso",
+"cantidad": 312
+},
+{
+"region": "Arica y Parinacota",
+"tipo": "Glaciarete",
+"cantidad": 22
+},
+{
+"region": "Tarapacá",
+"tipo": "Glaciar de montaña",
+"cantidad": 1
+},
+{
+"region": "Tarapacá",
+"tipo": "Glaciar rocoso",
+"cantidad": 97
+},
+{
+"region": "Tarapacá",
+"tipo": "Glaciarete",
+"cantidad": 6
+},
+{
+"region": "Antofagasta",
+"tipo": "Glaciar de montaña",
+"cantidad": 2
+},
+{
+"region": "Antofagasta",
+"tipo": "Glaciar rocoso",
+"cantidad": 119
+},
+{
+"region": "Antofagasta",
+"tipo": "Glaciarete",
+"cantidad": 29
+},
+{
+"region": "Atacama",
+"tipo": "Glaciar de montaña",
+"cantidad": 33
+},
+{
+"region": "Atacama",
+"tipo": "Glaciar rocoso",
+"cantidad": 422
+},
+{
+"region": "Atacama",
+"tipo": "Glaciarete",
+"cantidad": 408
+},
+{
+"region": "Coquimbo",
+"tipo": "Glaciar de montaña",
+"cantidad": 8
+},
+{
+"region": "Coquimbo",
+"tipo": "Glaciar rocoso",
+"cantidad": 763
+},
+{
+"region": "Coquimbo",
+"tipo": "Glaciarete",
+"cantidad": 127
+},
+{
+"region": "Valparaíso",
+"tipo": "Glaciar de montaña",
+"cantidad": 30
+},
+{
+"region": "Valparaíso",
+"tipo": "Glaciar de valle",
+"cantidad": 5
+},
+{
+"region": "Valparaíso",
+"tipo": "Glaciar rocoso",
+"cantidad": 647
+},
+{
+"region": "Valparaíso",
+"tipo": "Glaciarete",
+"cantidad": 83
+},
+{
+"region": "Metropolitana",
+"tipo": "Glaciar de montaña",
+"cantidad": 105
+},
+{
+"region": "Metropolitana",
+"tipo": "Glaciar de valle",
+"cantidad": 37
+},
+{
+"region": "Metropolitana",
+"tipo": "Glaciar rocoso",
+"cantidad": 785
+},
+{
+"region": "Metropolitana",
+"tipo": "Glaciarete",
+"cantidad": 327
+},
+{
+"region": "O'Higgins",
+"tipo": "Glaciar de montaña",
+"cantidad": 92
+},
+{
+"region": "O'Higgins",
+"tipo": "Glaciar de valle",
+"cantidad": 17
+},
+{
+"region": "O'Higgins",
+"tipo": "Glaciar rocoso",
+"cantidad": 211
+},
+{
+"region": "O'Higgins",
+"tipo": "Glaciarete",
+"cantidad": 456
+},
+{
+"region": "Maule",
+"tipo": "Glaciar de montaña",
+"cantidad": 33
+},
+{
+"region": "Maule",
+"tipo": "Glaciar rocoso",
+"cantidad": 22
+},
+{
+"region": "Maule",
+"tipo": "Glaciarete",
+"cantidad": 235
+},
+{
+"region": "Ñuble",
+"tipo": "Glaciar de montaña",
+"cantidad": 3
+},
+{
+"region": "Ñuble",
+"tipo": "Glaciarete",
+"cantidad": 53
+},
+{
+"region": "Biobío",
+"tipo": "Glaciar de montaña",
+"cantidad": 13
+},
+{
+"region": "Biobío",
+"tipo": "Glaciarete",
+"cantidad": 110
+},
+{
+"region": "La Araucanía",
+"tipo": "Glaciar de montaña",
+"cantidad": 29
+},
+{
+"region": "La Araucanía",
+"tipo": "Glaciarete",
+"cantidad": 86
+},
+{
+"region": "Los Ríos",
+"tipo": "Glaciar de montaña",
+"cantidad": 7
+},
+{
+"region": "Los Ríos",
+"tipo": "Glaciarete",
+"cantidad": 57
+},
+{
+"region": "Los Lagos",
+"tipo": "Glaciar de montaña",
+"cantidad": 414
+},
+{
+"region": "Los Lagos",
+"tipo": "Glaciar de valle",
+"cantidad": 31
+},
+{
+"region": "Los Lagos",
+"tipo": "Glaciar rocoso",
+"cantidad": 1
+},
+{
+"region": "Los Lagos",
+"tipo": "Glaciarete",
+"cantidad": 2579
+},
+{
+"region": "Aysén",
+"tipo": "Glaciar de montaña",
+"cantidad": 1674
+},
+{
+"region": "Aysén",
+"tipo": "Glaciar de valle",
+"cantidad": 113
+},
+{
+"region": "Aysén",
+"tipo": "Glaciar efluente",
+"cantidad": 54
+},
+{
+"region": "Aysén",
+"tipo": "Glaciar rocoso",
+"cantidad": 135
+},
+{
+"region": "Aysén",
+"tipo": "Glaciarete",
+"cantidad": 8325
+},
+{
+"region": "Magallanes",
+"tipo": "Glaciar de montaña",
+"cantidad": 1393
+},
+{
+"region": "Magallanes",
+"tipo": "Glaciar de valle",
+"cantidad": 107
+},
+{
+"region": "Magallanes",
+"tipo": "Glaciar efluente",
+"cantidad": 163
+},
+{
+"region": "Magallanes",
+"tipo": "Glaciar rocoso",
+"cantidad": 84
+},
+{
+"region": "Magallanes",
+"tipo": "Glaciarete",
+"cantidad": 5308
+}
+]
+}
