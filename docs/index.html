@@ -7,6 +7,9 @@
   <meta name="description" content="Shoan es un huemul que vive en la Patagonia. Esta es la historia del deshielo de los glaciares de Chile, contada por él." />
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
   <audio id="bg-audio" loop>
@@ -49,12 +52,12 @@
     </div>
 
     <div class="shoan-container" id="shoan-s1">
-      <img src="img/shoan-feliz.png" alt="Shoan feliz" class="shoan-img" id="shoan-img-s1" />
+      <img src="img/shoan-preocupado.png" alt="Shoan mirando con preocupación" class="shoan-img" id="shoan-img-s1" />
     
       <div class="speech-bubble" id="bubble-s1">
   <p>¡Hola! Me llamo <strong>Shoan</strong>.</p>
   <p>Así me llamaban los <em>tehuelches</em>, los primeros pueblos que habitaron estas tierras de la Patagonia.</p>
-  <p>Ellos vivían junto al hielo y aprendieron a escucharlo. Hoy quiero contarte lo que el hielo está diciendo.</p>
+  <p>Ellos vivían junto al hielo y aprendieron a escucharlo. Hoy quiero contarte lo que el hielo me está diciendo, y no son buenas noticias.</p>
 </div>
       
     </div>
@@ -89,17 +92,67 @@
 </div>
 
       <div class="stats-grid">
-        <div class="stat-card"><span class="stat-number" data-target="18">0</span><span class="stat-unit">cm</span><p class="stat-label">de hielo se pierden cada año en la Cordillera Darwin - Fuente: CR2 / DGA</p></div>
-        <div class="stat-card"><span class="stat-number" data-target="80">0</span><span class="stat-unit">%</span><p class="stat-label">de los glaciares de Sudamérica están en Chile - Fuente: DGA / IPG 2022</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="18">0</span><span class="stat-unit">cm</span><p class="stat-label">de hielo se pierden cada año en la Cordillera Darwin</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="80">0</span><span class="stat-unit">%</span><p class="stat-label">de los glaciares de Sudamérica están en Chile</p></div>
         <div class="stat-card"><span class="stat-number" data-target="6">0</span><span class="stat-unit"></span><p class="stat-label">proyectos de ley de protección glaciar se han presentado en 20 años sin terminar su tramitación</p></div>
-        <div class="stat-card"><span class="stat-number" data-target="16">0</span><span class="stat-unit">%</span><p class="stat-label">de capacidad registraron los embalses de Coquimbo en 2024, según datos de la DGA</p></div>
+        <div class="stat-card"><span class="stat-number" data-target="16">0</span><span class="stat-unit">%</span><p class="stat-label">de capacidad registraron los embalses de Coquimbo en 2024</p></div>
       </div>
+      <p class="stats-source">Fuentes: <a href="https://www.cr2.cl" target="_blank" rel="noopener">Centro CR2</a> · <a href="https://www.dga.cl" target="_blank" rel="noopener">DGA</a> · Inventario Público de Glaciares (IPG) 2022</p>
 
       <div class="story-panel">
         <p>Aunque a simple vista parezca solo un cambio en el paisaje, el deshielo afecta a todo mi hogar. El agua dulce que liberan los glaciares llega a los fiordos y al canal Beagle, cambia la salinidad del mar y pone en riesgo a las especies marinas, los ecosistemas costeros y a las personas que viven de la pesca.</p>
         <p>Y este problema no ocurre solo aquí.</p>
         <p>Chile alberga cerca del 80% de los glaciares de Sudamérica, por lo que protegerlos significa cuidar una de las principales reservas de agua del continente. Si el deshielo continúa acelerándose, las consecuencias serán cada vez más graves para la biodiversidad, para las personas... y también para mí y mi familia.</p>
+        <p class="finding-statement">Esto es lo que quiero mostrarte: el hielo no está repartido por igual en Chile, casi todos dependemos de él aunque no lo sepamos, y todavía no existe una ley que lo proteja. Esa es la historia que quiero contarte.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="comunidades" class="scene scene-6">
+    <div class="scene-overlay scene-overlay-earth"></div>
+    <div class="scene-content fade-in-section">
+      <div class="section-header">
+        <p class="eyebrow">Las personas detrás del deshielo</p>
+        <h2>El agua que se pierde<br>también tiene voces</h2>
+      </div>
+
+      <p class="section-lead">Antes de mostrarte los datos, quiero que conozcas a algunos de los que viven río abajo. El agua que se pierde con el hielo no es solo un número en un informe: es el agua que riega los campos de alguien, la que apaga la sed de una comunidad, la que sostiene un modo de vida que lleva siglos en pie.</p>
+
+      <div class="shoan-intro-chart">
+        <img src="img/shoan-triste.png" alt="Shoan observando el río" class="shoan-small" />
+        <div class="speech-bubble bubble-inline">
+          <p>Yo veo el río bajar con menos fuerza cada verano. Lo que antes eran torrentes, hoy son hilos de agua. Y los humanos que viven río abajo también lo notan.</p>
+        </div>
+      </div>
+
+      <div class="community-grid">
+        <article class="community-card">
+          <span class="location">Valle del Elqui - Región de Coquimbo</span>
+          <h3>Los agricultores que ya no pueden sembrar</h3>
+          <p>La región de Coquimbo lleva más de quince años bajo decretos de escasez hídrica. En el Valle del Elqui, agricultores que cultivaban uva, chirimoyas y hortalizas durante generaciones han tenido que reducir su superficie sembrada a la mitad o directamente abandonar sus campos. "Va a haber zonas en que disminuirá tanto la oferta hídrica que la gente tendrá que dejar el lugar donde vive", advirtió Carlos Olavarría, director ejecutivo del CEAZA.</p>
+          <div class="mini-gauge" role="img" aria-label="Los embalses de Coquimbo operaron al 16% de su capacidad en 2024">
+            <div class="mini-gauge-track"><div class="mini-gauge-fill" style="width:16%"></div></div>
+            <span class="mini-gauge-label"><strong>16%</strong> de capacidad registraron los embalses de la región en 2024 · Fuente: DGA</span>
+          </div>
+          <p>En el río Choapa, el caudal promediaba apenas 2.400 litros por segundo en 2025 - suficiente para cubrir solo el 20% de los derechos de agua otorgados en la cuenca, que coordina 92 comunidades de aguas. El fenómeno tiene nombre: migración climática. No es gente que se va por pobreza, sino porque la tierra ya no resiste.</p>
+        </article>
+
+        <article class="community-card">
+          <span class="location">Norte de Chile - Pueblo Lickanantay</span>
+          <h3>El pueblo que sabía vivir con la escasez</h3>
+          <p>Para el pueblo Lickanantay -los atacameños- el agua nunca fue abundante. Aprendieron durante siglos a convivir con la escasez del desierto, a construir sistemas de riego ancestrales y a cultivar en los oasis del norte. En la lengua kunza, el agua se llama <em>puri</em> y es el centro de su vida comunitaria.</p>
+          <p>Hoy, esa gestión milenaria enfrenta amenazas que van más allá del cambio climático. La extracción de litio en el Salar de Atacama, la minería del cobre y el turismo compiten por el mismo recurso. En junio de 2026, la comunidad de Toconao llevó a tribunales un proyecto minero que amenazaba las fuentes de agua del Salar de Tara, donde nacen los ríos que riegan sus cultivos de papa, porotos y maíz. Para ellos, perder el agua no es solo una crisis económica: es perder la posibilidad de seguir siendo quienes son.</p>
+          <p>Frente a eso, algunos han respondido con ingenio: adoptando la técnica himalaya de las <strong>estupas de hielo</strong> - glaciares artificiales piramidales que se forman durante el invierno y liberan agua de forma controlada en verano. Una respuesta ancestral al problema más urgente del siglo.</p>
+        </article>
+
+        <article class="community-card">
+          <span class="location">Patagonia - Comunidades pesqueras</span>
+          <h3>El mar que ya no es el mismo</h3>
+          <p>El deshielo de los glaciares patagónicos no solo afecta la tierra. El agua dulce que liberan los campos de hielo llega a los fiordos y al canal Beagle, alterando la salinidad del mar. Esto afecta directamente a las especies marinas que dependen de un equilibrio preciso entre agua dulce y salada: mitílidos, centollas, merluza austral. Las comunidades que viven de la pesca artesanal en las costas de Magallanes y Aysén ya registran cambios en los caladeros y en las temporadas de pesca. Un cambio que no genera titulares, pero que transforma la vida de miles de familias -las mismas aguas que veo yo cambiar de color en el fiordo.</p>
+        </article>
+      </div>
+
+      <p class="section-transition">Detrás de cada una de estas historias hay un mismo dato: cuánto hielo queda, y dónde. Vamos a mirarlo de cerca.</p>
     </div>
   </section>
 
@@ -124,22 +177,20 @@
 
      <div class="visual-grid visual-grid-two">
   <article class="visual-card">
-    <p class="eyebrow">Gráfico 1 - Composición proporcional</p>
     <h3>¿Qué tipo de glaciar predomina en cada región?</h3>
     <p>Cada barra representa el 100% de los glaciares de una región, dividida por tipo. Las regiones están ordenadas de norte a sur.</p>
     <figure>
-      <img src="img/visualizacion.webp" alt="Gráfico de barras apiladas al 100% que muestra la composición porcentual de tipos de glaciares por región en Chile." />
-      <figcaption>Composición porcentual por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+      <div id="chart-percent" class="vega-chart" role="img" aria-label="Gráfico de barras apiladas al 100% que muestra la composición porcentual de tipos de glaciares por región en Chile."></div>
+      <figcaption>Composición porcentual por región. Fuente: <a href="https://dga.mop.gob.cl" target="_blank" rel="noopener">IPG 2022 - DGA</a>. Elaboración propia con Python, Altair y Vega-Lite.</figcaption>
     </figure>
   </article>
 
   <article class="visual-card">
-    <p class="eyebrow">Gráfico 2 - Distribución absoluta</p>
     <h3>¿Cuántos glaciares tiene cada región?</h3>
     <p>El mismo desglose por tipo, pero ahora el eje Y muestra el número real de glaciares. Aysén y Magallanes concentran la inmensa mayoría. Ñuble y Biobío casi no se ven.</p>
     <figure>
-      <img src="img/glaciares_absolutos.svg" alt="Gráfico de barras apiladas con valores absolutos de glaciares por región en Chile." />
-      <figcaption>Distribución absoluta por región. Fuente: IPG 2022 - DGA. Elaboración propia con Python y Altair.</figcaption>
+      <div id="chart-absolute" class="vega-chart" role="img" aria-label="Gráfico de barras apiladas con valores absolutos de glaciares por región en Chile."></div>
+      <figcaption>Distribución absoluta por región. Fuente: <a href="https://dga.mop.gob.cl" target="_blank" rel="noopener">IPG 2022 - DGA</a>. Elaboración propia con Python, Altair y Vega-Lite.</figcaption>
     </figure>
   </article>
 </div>
@@ -168,23 +219,20 @@
       <div class="glacier-types-grid">
         <article class="type-card">
           <figure><img src="img/glaciar_rocoso.jpg" alt="Glaciar rocoso en el norte de Chile" /><figcaption>Glaciar rocoso en el norte de Chile. El hielo está oculto bajo las rocas. Fuente: DGA / IPG 2022.</figcaption></figure>
-          <p class="eyebrow">Glaciar rocoso</p>
           <h3>El hielo invisible del norte</h3>
-          <p>En las regiones de Arica, Tarapacá y Antofagasta, casi todos los glaciares son rocosos: masas de hielo cubiertas de detritos que actúan como un "termo" natural. Son invisibles para el turista, pero son la principal reserva hídrica de los valles del norte desértico. Si se derriten, el agua no puede recuperarse.</p>
+          <p>En las regiones de Arica, Tarapacá y Antofagasta, casi todos los glaciares que conozco son rocosos: masas de hielo cubiertas de detritos que actúan como un "termo" natural. Son invisibles para el turista, pero son la principal reserva hídrica de los valles del norte desértico. Si se derriten, el agua no puede recuperarse.</p>
         </article>
 
         <article class="type-card">
           <figure><img src="img/glaciar_paloma.jpg" alt="Glaciar La Paloma al atardecer" /><figcaption>Glaciar La Paloma, zona central de Chile. Un glaciar colgante que desciende entre paredes rocosas de la cordillera. Fuente: DGA / IPG 2022.</figcaption></figure>
-          <p class="eyebrow">Glaciar de montaña - Glaciar La Paloma</p>
           <h3>El hielo que alimenta los ríos del centro</h3>
-          <p>En la zona central de Chile -Valparaíso, Metropolitana, O'Higgins- los glaciares de montaña y los glaciares colgantes como La Paloma alimentan directamente los ríos que abastecen a la mayor parte de la población del país. Su retroceso ya está generando escasez hídrica en verano, la temporada cuando más se necesita el agua.</p>
+          <p>Más al sur, en la zona central -Valparaíso, Metropolitana, O'Higgins-, los glaciares de montaña y los glaciares colgantes como La Paloma alimentan directamente los ríos que abastecen a la mayor parte de la población del país. He visto cómo su retroceso ya genera escasez hídrica en verano, la temporada cuando más se necesita el agua.</p>
         </article>
 
         <article class="type-card">
           <figure><img src="img/glaciarete_ohiggins.jpg" alt="Glaciarete en el Cerro Brujo" /><figcaption>Glaciarete en el Cerro Brujo, Valle del Río San Andrés, Cuenca del Tinguiririca - Región de O'Higgins. Fuente: DGA / IPG 2022.</figcaption></figure>
-          <p class="eyebrow">Glaciarete - Cerro Brujo, Cuenca del Tinguiririca, O'Higgins</p>
           <h3>Los más pequeños y los más frágiles</h3>
-          <p>Los glaciaretes son masas de hielo menores a 0,5 km². Son los más sensibles a los cambios de temperatura: con apenas un grado de más, pueden desaparecer en décadas. En la zona central y sur de Chile son los primeros en verse afectados por el calentamiento global, y los que más difícilmente se recuperan.</p>
+          <p>Los glaciaretes son masas de hielo menores a 0,5 km². Son los más sensibles a los cambios de temperatura: con apenas un grado de más, pueden desaparecer en décadas. En la zona central y sur son los primeros que he visto afectados por el calentamiento global, y los que más difícilmente se recuperan.</p>
         </article>
       </div>
     </div>
@@ -242,6 +290,8 @@
           </div>
         </div>
       </div>
+
+      <p class="section-transition">Estos son siete de los glaciares que marqué en el mapa: los que mejor conozco, de norte a sur, y lo que sabemos de su retroceso.</p>
 
       <div class="glacier-card-grid">
         <article class="mini-glacier-card"><span>Coquimbo</span><h3>Glaciar El Tapado</h3><p>El glaciar más estudiado del norte chico. Ubicado a 5.550 msnm, es una de las principales reservas hídricas de la cuenca del Elqui. Ha perdido más de un tercio de su superficie desde 1955.</p></article>
@@ -382,49 +432,6 @@
     <div class="compare-dots" aria-label="Selector de glaciares"></div>
   </div>
 </section>
-  
-  <section id="comunidades" class="scene scene-6">
-    <div class="scene-overlay scene-overlay-earth"></div>
-    <div class="scene-content fade-in-section">
-      <div class="section-header">
-        <p class="eyebrow">Las personas detrás del deshielo</p>
-        <h2>El agua que se pierde<br>también tiene voces</h2>
-      </div>
-
-      <p class="section-lead">El agua que se pierde con el hielo no es solo un número en un informe. Es el agua que riega los campos de alguien, la que apaga la sed de una comunidad, la que sostiene un modo de vida que lleva siglos en pie.</p>
-
-      <div class="shoan-intro-chart">
-        <img src="img/shoan-triste.png" alt="Shoan observando el río" class="shoan-small" />
-        <div class="speech-bubble bubble-inline">
-          <p>Yo veo el río bajar con menos fuerza cada verano. Lo que antes eran torrentes, hoy son hilos de agua. Y los humanos que viven río abajo también lo notan.</p>
-        </div>
-      </div>
-
-      <div class="community-grid">
-        <article class="community-card">
-          <span class="location">Valle del Elqui - Región de Coquimbo</span>
-          <h3>Los agricultores que ya no pueden sembrar</h3>
-          <p>La región de Coquimbo lleva más de quince años bajo decretos de escasez hídrica. En el Valle del Elqui, agricultores que cultivaban uva, chirimoyas y hortalizas durante generaciones han tenido que reducir su superficie sembrada a la mitad o directamente abandonar sus campos. Según datos de la DGA, los embalses de la región operaron en 2024 al 16% de su capacidad. "Va a haber zonas en que disminuirá tanto la oferta hídrica que la gente tendrá que dejar el lugar donde vive", advirtió Carlos Olavarría, director ejecutivo del CEAZA.</p>
-          <p>En el río Choapa, el caudal promediaba apenas 2.400 litros por segundo en 2025 - suficiente para cubrir solo el 20% de los derechos de agua otorgados en la cuenca, que coordina 92 comunidades de aguas. El fenómeno tiene nombre: migración climática. No es gente que se va por pobreza, sino porque la tierra ya no resiste.</p>
-        </article>
-
-        <article class="community-card">
-          <span class="location">Norte de Chile - Pueblo Lickanantay</span>
-          <h3>El pueblo que sabía vivir con la escasez</h3>
-          <p>Para el pueblo Lickanantay -los atacameños- el agua nunca fue abundante. Aprendieron durante siglos a convivir con la escasez del desierto, a construir sistemas de riego ancestrales y a cultivar en los oasis del norte. En la lengua kunza, el agua se llama <em>puri</em> y es el centro de su vida comunitaria.</p>
-          <p>Hoy, esa gestión milenaria enfrenta amenazas que van más allá del cambio climático. La extracción de litio en el Salar de Atacama, la minería del cobre y el turismo compiten por el mismo recurso. En junio de 2026, la comunidad de Toconao llevó a tribunales un proyecto minero que amenazaba las fuentes de agua del Salar de Tara, donde nacen los ríos que riegan sus cultivos de papa, porotos y maíz. Para ellos, perder el agua no es solo una crisis económica: es perder la posibilidad de seguir siendo quienes son.</p>
-          <p>Frente a eso, algunos han respondido con ingenio: adoptando la técnica himalaya de las <strong>estupas de hielo</strong> - glaciares artificiales piramidales que se forman durante el invierno y liberan agua de forma controlada en verano. Una respuesta ancestral al problema más urgente del siglo.</p>
-        </article>
-
-        <article class="community-card">
-          <span class="location">Patagonia - Comunidades pesqueras</span>
-          <h3>El mar que ya no es el mismo</h3>
-          <p>El deshielo de los glaciares patagónicos no solo afecta la tierra. El agua dulce que liberan los campos de hielo llega a los fiordos y al canal Beagle, alterando la salinidad del mar. Esto afecta directamente a las especies marinas que dependen de un equilibrio preciso entre agua dulce y salada: mitílidos, centollas, merluza austral. Las comunidades que viven de la pesca artesanal en las costas de Magallanes y Aysén ya registran cambios en los caladeros y en las temporadas de pesca. Un cambio que no genera titulares, pero que transforma la vida de miles de familias.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section id="contacto" class="scene scene-7">
     <div class="glacier-bg-melted"><img src="img/glaciar2.png" alt="Glaciar patagónico en retroceso" class="bg-img" /></div>
     <div class="scene-overlay scene-overlay-dark"></div>
@@ -438,6 +445,7 @@
       </div>
 
       <div class="cta-block">
+        <p class="cta-bridge">Los agricultores del Elqui, el pueblo Lickanantay, los pescadores de Magallanes: todos dependen de una misma fuente que se está achicando. Y sin embargo, Chile todavía no tiene una ley que la proteja.</p>
         <h2>Chile todavía no tiene una ley de protección glaciar</h2>
         <p>Los glaciares de Chile son una de las reservas de agua dulce más importantes del planeta. Y están desapareciendo. En 20 años se han presentado 6 proyectos de ley que no terminaron su tramitación.</p>
         <p>La ciencia está clara. La urgencia también. Lo que falta es voluntad política y ciudadana.</p>
@@ -469,5 +477,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="charts.js"></script>
 </body>
 </html>
