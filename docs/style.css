@@ -497,3 +497,15 @@
 .audio-toggle.is-playing{
   background:var(--agua);
 }
+
+/* --- Ajustes Entrega 06: hallazgo, fuentes, transiciones, gráficos incrustados y gauge --- */
+.finding-statement{margin-top:1.2rem;padding:1rem 1.2rem;border-left:4px solid var(--sol);background:rgba(232,184,75,.08);color:var(--hielo);font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1.05rem,1.6vw,1.25rem)}
+.stats-source{margin-top:-.6rem;color:rgba(232,238,243,.62);font-size:.78rem}
+.stats-source a{color:var(--glaciar)}
+.section-transition{max-width:760px;margin:2rem 0 0;color:rgba(232,238,243,.72);font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1rem,1.6vw,1.15rem)}
+.vega-chart{width:100%;min-height:380px;border-radius:6px;background:rgba(240,248,255,.94);padding:.5rem}
+.mini-gauge{margin:.9rem 0;padding:.7rem .9rem;border-radius:6px;background:rgba(196,132,90,.1);border:1px solid rgba(196,132,90,.28)}
+.mini-gauge-track{width:100%;height:10px;border-radius:6px;background:rgba(240,248,255,.14);overflow:hidden;margin-bottom:.5rem}
+.mini-gauge-fill{height:100%;background:linear-gradient(90deg,var(--tierra),var(--sol));border-radius:6px}
+.mini-gauge-label{color:rgba(232,238,243,.78);font-size:.82rem}
+.cta-bridge{max-width:720px;margin-bottom:1rem;color:rgba(240,248,255,.82);font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(1rem,1.6vw,1.2rem)}
